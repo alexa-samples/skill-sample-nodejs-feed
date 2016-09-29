@@ -1,0 +1,491 @@
+SelectCategory {Index}
+SelectCategory category {Index}
+SelectCategory feed {Index}
+SelectCategory number {Index}
+SelectCategory open {Index}
+SelectCategory open category {Index}
+SelectCategory open feed {Index}
+SelectCategory open number {Index}
+SelectCategory open feed number {Index}
+SelectCategory go to {Index}
+SelectCategory go to category {Index}
+SelectCategory go to feed {Index}
+SelectCategory go to number {Index}
+
+SelectCategory to open feed {Index}
+SelectCategory to open feed number {Index}
+SelectCategory to go to feed {Index}
+SelectCategory to go to feed number {Index}
+SelectCategory to play feed {Index}
+SelectCategory to play feed number {Index}
+SelectCategory to begin feed {Index}
+SelectCategory to begin feed number {Index}
+SelectCategory to start feed {Index}
+SelectCategory to start feed number {Index}
+
+SelectCategory {Ordinal}
+SelectCategory {Ordinal} category
+SelectCategory {Ordinal} feed
+SelectCategory category {Ordinal}
+SelectCategory feed {Ordinal}
+SelectCategory open {Ordinal}
+SelectCategory open {Ordinal} category
+SelectCategory open {Ordinal} feed
+SelectCategory open category {Ordinal}
+SelectCategory open feed {Ordinal}
+SelectCategory go to {Ordinal}
+SelectCategory go to {Ordinal} category
+SelectCategory go to {Ordinal} feed
+SelectCategory go to category {Ordinal}
+SelectCategory go to feed {Ordinal}
+
+SelectCategory to open {Ordinal}
+SelectCategory to open {Ordinal} feed
+SelectCategory to open feed {Ordinal}
+SelectCategory to go to {Ordinal}
+SelectCategory to go to {Ordinal} feed
+SelectCategory to go to feed {Ordinal}
+SelectCategory to play {Ordinal}
+SelectCategory to play {Ordinal} feed
+SelectCategory to play feed {Ordinal}
+SelectCategory to begin {Ordinal}
+SelectCategory to begin {Ordinal} feed
+SelectCategory to begin feed {Ordinal}
+SelectCategory to start {Ordinal}
+SelectCategory to start {Ordinal} feed
+SelectCategory to start feed {Ordinal}
+
+SelectCategory {Category}
+SelectCategory category {Category}
+SelectCategory feed {Category}
+SelectCategory open {Category}
+SelectCategory open category {Category}
+SelectCategory open feed {Category}
+SelectCategory go to {Category}
+SelectCategory go to Category {Category}
+SelectCategory go to feed {Category}
+
+SelectCategory to open {Category}
+SelectCategory to open {Category} feed
+SelectCategory to play {Category}
+SelectCategory to play {Category} feed
+SelectCategory to start {Category}
+SelectCategory to start {Category} feed
+SelectCategory to begin {Category}
+SelectCategory to begin {Category} feed
+
+
+SelectFavorite favorite
+SelectFavorite favorites
+
+SelectFavorite open favorites
+SelectFavorite open favorite feeds
+SelectFavorite open my favorites
+SelectFavorite open my favorite feeds
+
+SelectFavorite play favorites
+SelectFavorite play favorite feeds
+SelectFavorite play my favorites
+SelectFavorite play my favorite feeds
+
+SelectFavorite start favorites
+SelectFavorite start favorite feeds
+SelectFavorite start my favorites
+SelectFavorite start my favorite feeds
+
+SelectFavorite to open favorites
+SelectFavorite to open favorite feeds
+SelectFavorite to open my favorites
+SelectFavorite to open my favorite feeds
+
+SelectFavorite to play favorites
+SelectFavorite to play favorite feeds
+SelectFavorite to play my favorites
+SelectFavorite to play my favorite feeds
+
+SelectFavorite to begin favorites
+SelectFavorite to begin favorite feeds
+SelectFavorite to begin my favorites
+SelectFavorite to begin my favorite feeds
+
+SelectFavorite to start favorites
+SelectFavorite to start favorite feeds
+SelectFavorite to start my favorites
+SelectFavorite to start my favorite feeds
+
+
+ListFavorite list favorites
+ListFavorite list all favorites
+ListFavorite list my favorites
+ListFavorite list favorite feeds
+ListFavorite list my favorite feeds
+ListFavorite list the favorite feeds
+
+ListFavorite which is my favorite feed
+ListFavorite which are my favorite feeds
+ListFavorite what is my favorite feed
+ListFavorite what are my favorite feeds
+
+
+GetCategoryList get categories
+GetCategoryList get all categories
+GetCategoryList get the categories
+GetCategoryList get all the categories
+
+GetCategoryList get category list
+GetCategoryList get the category list
+
+GetCategoryList give category list
+GetCategoryList give the category list
+
+GetCategoryList list categories
+GetCategoryList list the categories
+GetCategoryList list all categories
+GetCategoryList list all the categories
+
+GetCategoryList back to category
+GetCategoryList back to categories
+GetCategoryList back to all categories
+GetCategoryList back to category list
+
+GetCategoryList go back to category
+GetCategoryList go back to categories
+GetCategoryList go back to all categories
+GetCategoryList go back to category list
+
+GetCategoryList get feeds
+GetCategoryList get all feeds
+GetCategoryList get the feeds
+GetCategoryList get all the feeds
+
+GetCategoryList get feed list
+GetCategoryList get the feed list
+
+GetCategoryList give feed list
+GetCategoryList give the feed list
+
+GetCategoryList list feeds
+GetCategoryList list the feeds
+GetCategoryList list all feeds
+GetCategoryList list all the feeds
+
+GetCategoryList back to category
+GetCategoryList back to feeds
+GetCategoryList back to all feeds
+GetCategoryList back to feed list
+
+GetCategoryList go back to feeds
+GetCategoryList go back to all feeds
+GetCategoryList go back to feed list
+
+
+AddFavorite add {Category} to favorite
+AddFavorite add {Category} to favorite category
+AddFavorite add {Category} to favorite categories
+
+AddFavorite add {Category} to my favorite
+AddFavorite add {Category} to my favorite category
+AddFavorite add {Category} to my favorite categories
+
+AddFavorite mark {Category} as favorite
+AddFavorite mark {Category} as favorite category
+AddFavorite mark {Category} as favorite categories
+
+AddFavorite mark {Category} as my favorite
+AddFavorite mark {Category} as my favorite category
+AddFavorite mark {Category} as my favorite categories
+
+AddFavorite make {Category} as favorite
+AddFavorite make {Category} as favorite category
+AddFavorite make {Category} as favorite categories
+
+AddFavorite make {Category} as my favorite
+AddFavorite make {Category} as my favorite category
+AddFavorite make {Category} as my favorite categories
+
+AddFavorite add category {Index} to favorite
+AddFavorite add category {Index} to favorite category
+AddFavorite add category {Index} to favorite categories
+
+AddFavorite add category {Index} to my favorite
+AddFavorite add category {Index} to my favorite category
+AddFavorite add category {Index} to my favorite categories
+
+
+AddFavorite mark category {Index} as favorite
+AddFavorite mark category {Index} as favorite category
+AddFavorite mark category {Index} as favorite categories
+
+AddFavorite mark category {Index} as my favorite
+AddFavorite mark category {Index} as my favorite category
+AddFavorite mark category {Index} as my favorite categories
+
+AddFavorite make category {Index} as favorite
+AddFavorite make category {Index} as favorite category
+AddFavorite make category {Index} as favorite categories
+
+AddFavorite make category {Index} as my favorite
+AddFavorite make category {Index} as my favorite category
+AddFavorite make category {Index} as my favorite categories
+
+AddFavorite add {Ordinal} category to favorite
+AddFavorite add {Ordinal} to favorite category
+AddFavorite add {Ordinal} to favorite categories
+
+AddFavorite add {Ordinal} to my favorite
+AddFavorite add {Ordinal} to my favorite category
+AddFavorite add {Ordinal} to my favorite categories
+
+AddFavorite mark {Ordinal} as favorite
+AddFavorite mark {Ordinal} as favorite category
+AddFavorite mark {Ordinal} as favorite categories
+
+AddFavorite mark {Ordinal} as my favorite
+AddFavorite mark {Ordinal} as my favorite category
+AddFavorite mark {Ordinal} as my favorite categories
+
+AddFavorite make {Ordinal} as favorite
+AddFavorite make {Ordinal} as favorite category
+AddFavorite make {Ordinal} as favorite categories
+
+AddFavorite make {Ordinal} as my favorite
+AddFavorite make {Ordinal} as my favorite category
+AddFavorite make {Ordinal} as my favorite categories
+
+AddFavorite add {Ordinal} category to favorite
+AddFavorite add {Ordinal} category to favorite category
+AddFavorite add {Ordinal} category to favorite categories
+
+AddFavorite add {Ordinal} category to my favorite
+AddFavorite add {Ordinal} category to my favorite category
+AddFavorite add {Ordinal} category to my favorite categories
+
+AddFavorite mark {Ordinal} category as favorite
+AddFavorite mark {Ordinal} category as favorite category
+AddFavorite mark {Ordinal} category as favorite categories
+
+AddFavorite mark {Ordinal} category as my favorite
+AddFavorite mark {Ordinal} category as my favorite category
+AddFavorite mark {Ordinal} category as my favorite categories
+
+AddFavorite make {Ordinal} category as favorite
+AddFavorite make {Ordinal} category as favorite category
+AddFavorite make {Ordinal} category as favorite categories
+
+AddFavorite make {Ordinal} category as my favorite
+AddFavorite make {Ordinal} category as my favorite category
+AddFavorite make {Ordinal} category as my favorite categories
+
+AddFavorite add {Category} to favorite
+AddFavorite add {Category} to favorite feed
+AddFavorite add {Category} to favorite feeds
+
+AddFavorite add {Category} to my favorite
+AddFavorite add {Category} to my favorite feed
+AddFavorite add {Category} to my favorite feeds
+
+AddFavorite mark {Category} as favorite
+AddFavorite mark {Category} as favorite feed
+AddFavorite mark {Category} as favorite feeds
+
+AddFavorite mark {Category} as my favorite
+AddFavorite mark {Category} as my favorite feed
+AddFavorite mark {Category} as my favorite feeds
+
+AddFavorite make {Category} as favorite
+AddFavorite make {Category} as favorite feed
+AddFavorite make {Category} as favorite feeds
+
+AddFavorite make {Category} as my favorite
+AddFavorite make {Category} as my favorite feed
+AddFavorite make {Category} as my favorite feeds
+
+AddFavorite add feed {Index} to favorite
+AddFavorite add feed {Index} to favorite feed
+AddFavorite add feed {Index} to favorite feeds
+
+AddFavorite add feed {Index} to my favorite
+AddFavorite add feed {Index} to my favorite feed
+AddFavorite add feed {Index} to my favorite feeds
+
+
+AddFavorite mark feed {Index} as favorite
+AddFavorite mark feed {Index} as favorite feed
+AddFavorite mark feed {Index} as favorite feeds
+
+AddFavorite mark feed {Index} as my favorite
+AddFavorite mark feed {Index} as my favorite feed
+AddFavorite mark feed {Index} as my favorite feeds
+
+AddFavorite make feed {Index} as favorite
+AddFavorite make feed {Index} as favorite feed
+AddFavorite make feed {Index} as favorite feeds
+
+AddFavorite make feed {Index} as my favorite
+AddFavorite make feed {Index} as my favorite feed
+AddFavorite make feed {Index} as my favorite feeds
+
+AddFavorite add {Ordinal} feed to favorite
+AddFavorite add {Ordinal} to favorite feed
+AddFavorite add {Ordinal} to favorite feeds
+
+AddFavorite add {Ordinal} to my favorite
+AddFavorite add {Ordinal} to my favorite feed
+AddFavorite add {Ordinal} to my favorite feeds
+
+AddFavorite mark {Ordinal} as favorite
+AddFavorite mark {Ordinal} as favorite feed
+AddFavorite mark {Ordinal} as favorite feeds
+
+AddFavorite mark {Ordinal} as my favorite
+AddFavorite mark {Ordinal} as my favorite feed
+AddFavorite mark {Ordinal} as my favorite feeds
+
+AddFavorite make {Ordinal} as favorite
+AddFavorite make {Ordinal} as favorite feed
+AddFavorite make {Ordinal} as favorite feeds
+
+AddFavorite make {Ordinal} as my favorite
+AddFavorite make {Ordinal} as my favorite feed
+AddFavorite make {Ordinal} as my favorite feeds
+
+AddFavorite add {Ordinal} feed to favorite
+AddFavorite add {Ordinal} feed to favorite feed
+AddFavorite add {Ordinal} feed to favorite feeds
+
+AddFavorite add {Ordinal} feed to my favorite
+AddFavorite add {Ordinal} feed to my favorite feed
+AddFavorite add {Ordinal} feed to my favorite feeds
+
+AddFavorite mark {Ordinal} feed as favorite
+AddFavorite mark {Ordinal} feed as favorite feed
+AddFavorite mark {Ordinal} feed as favorite feeds
+
+AddFavorite mark {Ordinal} feed as my favorite
+AddFavorite mark {Ordinal} feed as my favorite feed
+AddFavorite mark {Ordinal} feed as my favorite feeds
+
+AddFavorite make {Ordinal} feed as favorite
+AddFavorite make {Ordinal} feed as favorite feed
+AddFavorite make {Ordinal} feed as favorite feeds
+
+AddFavorite make {Ordinal} feed as my favorite
+AddFavorite make {Ordinal} feed as my favorite feed
+AddFavorite make {Ordinal} feed as my favorite feeds
+
+
+RemoveFavorite remove {Category}
+RemoveFavorite remove {Category} as favorite
+RemoveFavorite remove {Category} as my favorite
+RemoveFavorite remove {Category} from favorite
+RemoveFavorite remove {Category} from favorites
+RemoveFavorite remove {Category} from my favorite
+RemoveFavorite remove {Category} from my favorites
+
+
+AddCurrentToFavorite add to favorite
+AddCurrentToFavorite add to favorites
+AddCurrentToFavorite add as favorite
+AddCurrentToFavorite add as favorite
+AddCurrentToFavorite add this to favorite
+AddCurrentToFavorite add this to favorites
+AddCurrentToFavorite add this to my favorite
+AddCurrentToFavorite add this to my favorites
+AddCurrentToFavorite add this category to favorite
+AddCurrentToFavorite add this category to favorites
+AddCurrentToFavorite add this category to my favorite
+AddCurrentToFavorite add this category to my favorites
+AddCurrentToFavorite add this feed to favorite
+AddCurrentToFavorite add this feed to favorites
+AddCurrentToFavorite add this feed to my favorite
+AddCurrentToFavorite add this feed to my favorites
+
+RemoveCurrentFromFavorite remove from favorite
+RemoveCurrentFromFavorite remove from favorites
+RemoveCurrentFromFavorite remove as favorite
+RemoveCurrentFromFavorite remove as favorite
+RemoveCurrentFromFavorite remove this from favorite
+RemoveCurrentFromFavorite remove this from favorites
+RemoveCurrentFromFavorite remove this from my favorite
+RemoveCurrentFromFavorite remove this from my favorites
+RemoveCurrentFromFavorite remove this category from favorite
+RemoveCurrentFromFavorite remove this category from favorites
+RemoveCurrentFromFavorite remove this category from my favorite
+RemoveCurrentFromFavorite remove this category from my favorites
+RemoveCurrentFromFavorite remove this feed from favorite
+RemoveCurrentFromFavorite remove this feed from favorites
+RemoveCurrentFromFavorite remove this feed from my favorite
+RemoveCurrentFromFavorite remove this feed from my favorites
+
+
+SendItem send details of {Ordinal}
+SendItem send details of {Ordinal} item
+SendItem send details of item {Index}
+SendItem send details of item number {Index}
+SendItem send the details of {Ordinal} item
+SendItem send the details of item {Index}
+SendItem send the details of item number {Index}
+SendItem send the link of {Ordinal}
+SendItem send the link of item {Index}
+SendItem send the link of item number {Index}
+
+SendItem send details of {Ordinal}
+SendItem send details of {Ordinal} article
+SendItem send details of article {Index}
+SendItem send details of article number {Index}
+SendItem send the details of {Ordinal} article
+SendItem send the details of article {Index}
+SendItem send the details of article number {Index}
+SendItem send the link of {Ordinal}
+SendItem send the link of article {Index}
+SendItem send the link of article number {Index}
+
+ItemInfo give details of {Ordinal} item
+ItemInfo give details of item {Index}
+ItemInfo give details of item number {Index}
+ItemInfo give more details of {Ordinal} item
+ItemInfo give more details of item {Index}
+ItemInfo give more details of item number {Index}
+ItemInfo details for {Ordinal} item
+ItemInfo details of item {Index}
+ItemInfo details of item number {Index}
+ItemInfo more details of {Ordinal} item
+ItemInfo more details of item {Index}
+ItemInfo more details of item number {Index}
+ItemInfo give details about {Ordinal} item
+ItemInfo give details about item {Index}
+ItemInfo give details about item number {Index}
+ItemInfo give more details about {Ordinal} item
+ItemInfo give more details about item {Index}
+ItemInfo give more details about item number {Index}
+ItemInfo details about {Ordinal} item
+ItemInfo details about item {Index}
+ItemInfo details about item number {Index}
+ItemInfo more details about {Ordinal} item
+ItemInfo more details about item {Index}
+ItemInfo more details about item number {Index}
+
+ItemInfo give details of {Ordinal} article
+ItemInfo give details of article {Index}
+ItemInfo give details of article number {Index}
+ItemInfo give more details of {Ordinal} article
+ItemInfo give more details of article {Index}
+ItemInfo give more details of article number {Index}
+ItemInfo details for {Ordinal} article
+ItemInfo details of article {Index}
+ItemInfo details of article number {Index}
+ItemInfo more details of {Ordinal} article
+ItemInfo more details of article {Index}
+ItemInfo more details of article number {Index}
+ItemInfo give details about {Ordinal} article
+ItemInfo give details about article {Index}
+ItemInfo give details about article number {Index}
+ItemInfo give more details about {Ordinal} article
+ItemInfo give more details about article {Index}
+ItemInfo give more details about article number {Index}
+ItemInfo details about {Ordinal} article
+ItemInfo details about article {Index}
+ItemInfo details about article number {Index}
+ItemInfo more details about {Ordinal} article
+ItemInfo more details about article {Index}
+ItemInfo more details about article number {Index}

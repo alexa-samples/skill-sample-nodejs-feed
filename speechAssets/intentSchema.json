@@ -1,0 +1,120 @@
+{
+  "intents": [
+    {
+      "intent": "SelectCategory",
+      "slots": [
+        {
+          "name": "Index",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Ordinal",
+          "type": "ORDINAL"
+        },
+        {
+          "name": "Category",
+          "type": "CATEGORY"
+        }
+      ]
+    },
+    {
+      "intent": "SelectFavorite"
+    },
+    {
+      "intent": "AddFavorite",
+      "slots": [
+        {
+          "name": "Index",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Ordinal",
+          "type": "ORDINAL"
+        },
+        {
+          "name": "Category",
+          "type": "CATEGORY"
+        }
+      ]
+    },
+    {
+      "intent": "RemoveFavorite",
+      "slots": [
+        {
+          "name": "Index",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Ordinal",
+          "type": "ORDINAL"
+        },
+        {
+          "name": "Category",
+          "type": "CATEGORY"
+        }
+      ]
+    },
+    {
+      "intent": "AddCurrentToFavorite"
+    },
+    {
+      "intent": "RemoveCurrentFromFavorite"
+    },
+    {
+      "intent": "ListFavorite"
+    },
+    {
+      "intent": "GetCategoryList"
+    },
+    {
+      "intent": "AMAZON.NextIntent"
+    },
+    {
+      "intent": "AMAZON.PreviousIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "SendItem",
+      "slots": [
+        {
+          "name": "Index",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Ordinal",
+          "type": "ORDINAL"
+        }
+      ]
+    },
+    {
+      "intent": "ItemInfo",
+      "slots": [
+        {
+          "name": "Index",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Ordinal",
+          "type": "ORDINAL"
+        }
+      ]
+    }
+  ]
+}

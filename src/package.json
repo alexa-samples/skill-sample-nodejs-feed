@@ -1,0 +1,15 @@
+{
+  "name": "skill-sample-nodejs-feed",
+  "version": "1.0.0",
+  "description": "An Alexa Skill Template to help create skills that read RSS/Atom feeds. ",
+  "dependencies": {
+    "alexa-sdk": "1.0.5",
+    "async": "2.0.0-rc.6",
+    "aws-sdk": "2.5.4",
+    "feedparser": "1.1.4",
+    "html-entities": "1.2.0",
+    "request": "2.72.0",
+    "striptags": "2.1.1"
+  },
+  "author": "Amazon.com"
+}
