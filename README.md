@@ -111,10 +111,12 @@ Next, you'll setup your local environment to run the deployment script.
 ## Deploy Your Skill
 
 1. Go to the ```skill-sample-nodejs-feed/bin/``` directory and run ```deploy.js``` using Node.
+
     ```
     npm install aws-sdk
     node deploy.js
     ```
+    
 2. Go to the the ```skill-sample-nodejs-feed/src/``` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself.   Lambda needs to be able to find the ```index.js``` file at the root of the zip file. 
 
 3. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1) and upload the file to your Lambda function, selecting "Code entry type" as "Upload a .ZIP file".
