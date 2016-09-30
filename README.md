@@ -21,9 +21,13 @@ Set these up with these step-by-step instructions:
      ![create_role_2](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-2.PNG "AWS Create Role Screenshot 2")
      ![create_role_3](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-3.PNG "AWS Create Role Screenshot 3")
 
-  1. Create an AWS Lambda function named MyFeedSkillLambdaFunction being sure to select "Alexa Skills Kit" as the trigger and using the role created above.  Take note of the ARN on the upper right, which you'll configure in the Developer Console later.
-
+  1. Create an AWS Lambda function named MyFeedSkillLambdaFunction.
+    1. Under "Select blueprint", choose skip.
+    1. Under "Configure triggers", select "Alexa Skills Kit" as the trigger.
+  
      ![alt text](https://cloud.githubusercontent.com/assets/7671574/17451088/ff126618-5b18-11e6-8f46-fbfb9461ab80.png "AWS Lambda Create Trigger Screenshot")
+     
+    1. Under "Configure function", enter the skill name as MyFeedSkillLambdaFunction.  Leave the defaults for everything except choose the role you created above under "Existing role".   Take note of the ARN on the upper right, which you'll configure in the Developer Console later.
 
   1. Create an AWS S3 Bucket with the name of your choice. Note, S3 bucket name you choose must be unique across all existing bucket names in Amazon S3. Thus you may have to retry with another name in case of a conflict.
 
