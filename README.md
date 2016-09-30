@@ -122,11 +122,13 @@ Next, you'll setup your local environment to run the deployment script.
 
 3. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1) and upload the file to your Lambda function, selecting "Code entry type" as "Upload a .ZIP file".
 
-4. Go to the [Developer Portal](https://developer.amazon.com/edw/home.html#/skills/list) copy following content from ```skill-sample-nodejs-feed/speechAssets/``` to the Interaction Model :
-    * ```IntentSchema.json``` to **Intent Schema**
-    * ```Utterances.txt``` to **Sample Utterances**
+4. Go to the [Developer Portal](https://developer.amazon.com/edw/home.html#/skills/list) copy following content from ```skill-sample-nodejs-feed/speechAssets/``` to the Interaction Model:
     * ```CustomSlots-ORDINALS.txt``` to a new custom slot with Type : ORDINAL
     * ```CustomSlots-CATEGORIES.txt``` to a new custom slot with Type : CATEGORY
+        * **Note:** This file is not generated.  You'll need to update it with names for each of the feeds you added in your configuration above.
+    * ```IntentSchema.json``` to **Intent Schema**
+        * **Note:** You'll need to create the custom slots and save them before you can submit the intent schema that references them.
+    * ```Utterances.txt``` to **Sample Utterances**
 
 5. Start testing the skill in the Developer Portal or on your device.
 
