@@ -30,6 +30,7 @@ Set these up with these step-by-step instructions:
     1. Under "Configure function":
       1. Enter "MyFeedSkillLambdaFunction" under "Name".  
       1. Choose the role you created above under "Existing role".
+      1. Change the "Timeout" to 30 seconds.
       1. Leave the defaults for everything else.
     1. Note the ARN of the Lambda you've created, which you'll need later.
 
