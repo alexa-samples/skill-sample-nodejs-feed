@@ -1,7 +1,7 @@
 "use strict";
 
 var AWS = require("aws-sdk");
-var s3 = new AWS.S3();
+var s3 = new AWS.S3({signatureVersion: 'v4'});
 var config = require("./configuration");
 
 var s3Helper = function () {

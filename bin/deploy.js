@@ -1,7 +1,7 @@
 var config = require('../src/configuration');
 var fs = require('fs');
 var AWS = require('aws-sdk');
-var s3 = new AWS.S3();
+var s3 = new AWS.S3({signatureVersion: 'v4'});
 
 
 var feeds = Object.keys(config.feeds);
