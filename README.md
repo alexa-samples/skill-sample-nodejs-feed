@@ -14,29 +14,29 @@ To get started, you'll need to setup a few pre-requisites:
 Set these up with these step-by-step instructions:
 
 1. Create or login to an AWS account. In the AWS Console:
-  1. Be sure to select "N. Virginia" as the region on the upper right.  
-  1. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs.
+1. Be sure to select "N. Virginia" as the region on the upper right.  
+1. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs.
 
      ![create_role_1](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-1.PNG "AWS Create Role Screenshot 1")
      ![create_role_2](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-2.PNG "AWS Create Role Screenshot 2")
      ![create_role_3](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-3.PNG "AWS Create Role Screenshot 3")
 
-  1. Create an AWS Lambda function named MyFeedSkillLambdaFunction.
-    1. Under "Select blueprint", choose skip.
-    1. Under "Configure triggers", select "Alexa Skills Kit" as the trigger.
-  
-     ![alt text](https://cloud.githubusercontent.com/assets/7671574/17451088/ff126618-5b18-11e6-8f46-fbfb9461ab80.png "AWS Lambda Create Trigger Screenshot")
-     
-    1. Under "Configure function":
-      1. Enter "MyFeedSkillLambdaFunction" under "Name".  
-      1. Choose the role you created above under "Existing role".
-      1. Change the "Timeout" to 30 seconds, since feeds can become an issue.
-      1. Leave the defaults for everything else.
-    1. Note the ARN of the Lambda you've created, which you'll need later.
+1. Create an AWS Lambda function named MyFeedSkillLambdaFunction.
+1. Under "Select blueprint", choose skip.
+1. Under "Configure triggers", select "Alexa Skills Kit" as the trigger.
+
+    ![Create_Lambda_1](https://cloud.githubusercontent.com/assets/7671574/17451088/ff126618-5b18-11e6-8f46-fbfb9461ab80.png "AWS Lambda Create Trigger Screenshot")
+
+1. Under "Configure function":
+   1. Enter "MyFeedSkillLambdaFunction" under "Name".  
+   1. Choose the role you created above under "Existing role".
+   1. Change the "Timeout" to 30 seconds, since feeds can become an issue.
+   1. Leave the defaults for everything else.
+1. Note the ARN of the Lambda you've created, which you'll need later.
 
   1. Create an AWS S3 Bucket with the name of your choice. Note, the S3 bucket name you choose must be unique across all existing bucket names in Amazon S3. Thus you may have to retry with another name in case of a conflict.
 
-       ![alt text](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-s3-bucket-screenshot-1.PNG "AWS DynamoDB Screenshot")
+       ![Create_Bucket](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-s3-bucket-screenshot-1.PNG "AWS DynamoDB Screenshot")
 
   1. **[OPTIONAL]** Create an AWS DynamoDB table named MyFeedSkillTable with the case sensitive primary key "userId".
 
