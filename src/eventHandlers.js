@@ -76,7 +76,8 @@ var eventHandlers = {
                
                     if (message != constants.terminate) {
                         message = message || '';
-                        this.emit(':tell', message);
+                        this.response.speak(message);
+                        this.emit(':responseReady');
                     } else {
                         this.emit(':saveState', true);
                     }
@@ -88,7 +89,9 @@ var eventHandlers = {
             
             if (message != constants.terminate) {
                 message = message || '';
-                this.emit(':tell', message);
+                
+                this.response.speak(message);
+                this.emit(':responseReady');
             } else {
                 this.emit(':saveState', true);
             }

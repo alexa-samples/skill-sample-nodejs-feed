@@ -16,7 +16,12 @@ var speechHandlers = {
             message += categoryList;
             reprompt += categoryList;
             cardContent += cardCategoryList;
-            this.emit(':askWithCard', message, reprompt, cardTitle, cardContent, null);
+            
+            this.response.cardRenderer(cardTitle, cardContent, null);
+            this.response.speak(message).listen(reprompt);
+
+            this.emit(':responseReady');
+
         });
     },
     'listCategories' : function () {
@@ -33,8 +38,11 @@ var speechHandlers = {
             message = categoryList;
             reprompt += categoryList;
             cardContent = cardCategoryList;
-            this.emit(':askWithCard', message, reprompt, cardTitle, cardContent, null);
-        })
+
+            this.response.cardRenderer(cardTitle, cardContent, null);
+            this.response.speak(message).listen(reprompt);
+
+            this.emit(':responseReady');        })
     },
     'illegalCategory' : function () {
         // Output sorry message when category not recognized along with a request to choose the category
@@ -44,8 +52,10 @@ var speechHandlers = {
         categoryHelper((categoryList) => {
             message += categoryList;
             reprompt += categoryList;
-            this.emit(':ask', message, reprompt);
-        })
+
+            this.response.speak(message).listen(reprompt);
+
+            this.emit(':responseReady');        })
     },
     'listFavorite' : function () {
         // Output list of feeds marked as favorite by the user
@@ -77,7 +87,10 @@ var speechHandlers = {
             cardContent += 'You can say open favorites to hear your favorite feeds.';
             reprompt += ' You can say open favorites to hear your favorite feeds.';
         }
-        this.emit(':askWithCard', message, reprompt, cardTitle, cardContent, null);
+        this.response.cardRenderer(cardTitle, cardContent, null);
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
     },
     'favoriteAdded' : function (category) {
         // Output success message when feed marked as favorite
@@ -88,7 +101,9 @@ var speechHandlers = {
         var message = category + ' has been added to your favorites. ' +
             'You can say, open favorites, to hear your favorite feeds.';
         var reprompt = 'You can say, open favorites, to hear your favorite feeds.';
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
     },
     'favoriteRemoved' : function (category) {
         // Output success message when feed removed as favorite
@@ -99,7 +114,9 @@ var speechHandlers = {
         var message = category + ' has been removed from your favorites. ' +
             'You can say, open favorites, to hear your favorite feeds.';
         var reprompt = 'You can say, open favorites, to hear your favorite feeds.';
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
     },
     'favoriteAddExistingError' : function (category) {
         // Output message when feed is already marked as favorite
@@ -113,25 +130,33 @@ var speechHandlers = {
         var message = category + ' was not present in your favorites. ' +
             'You can say, open favorites, to hear your favorite feeds.';
         var reprompt = 'You can say, open favorites, to hear your favorite feeds.';
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
     },
     'favoriteAddCurrentError' : function () {
         var message = 'Sorry, cannot add favorite to favorites.';
         var reprompt = 'You can say next for more items.';
-        this.emit(':ask', message, reprompt);
-    },
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
+      },
     'favoriteRemoveCurrentError' : function () {
         var message = 'Sorry, cannot remove favorite from favorites.';
         var reprompt = 'You can say next for more items.';
-        this.emit(':ask', message, reprompt);
-    },
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
+      },
     'favoriteListEmpty' : function () {
         var message = 'You have no feed marked as favorite. ' +
             'You can say mark ' + Object.keys(config.feeds)[0] + '  as favorite.';
         var reprompt = 'Your list of favorite feeds is empty. ' +
             'You can say mark ' + Object.keys(config.feeds)[0] + '  as favorite.';
-        this.emit(':ask', message, reprompt);
-    },
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
+      },
     'noNewItems' : function () {
         // Output message when no new items present in the feed
         var message = '';
@@ -141,15 +166,17 @@ var speechHandlers = {
                 this.attributes['start'] = false;
             }
             message += 'There are no new items. Would you like to hear older items? ';
-            this.emit(':ask', message, message);
-        } else {
+            this.response.speak(message).listen(message);
+
+          } else {
             message = this.attributes['category'] + ' has no new items. Would you like to hear older items? ';
             var reprompt = 'There are no new items in the feed. ' +
                 'You can say yes to hear older items and no to select other feeds.';
             // change state to NO_NEW_ITEM
             this.handler.state = constants.states.NO_NEW_ITEM;
-            this.emit(':ask', message, reprompt);
-        }
+            this.response.speak(message).listen(reprompt);
+          }
+        this.emit(':responseReady');          
     },
     'readPagedItems' : function (items) {
         // Read items to the user
@@ -213,7 +240,10 @@ var speechHandlers = {
             reprompt = 'You can say next for more items, or say previous for previous items. ' +
                 'You can also say, list all feeds, to hear all categories. ';
         }
-        this.emit(':askWithCard', message, reprompt, cardTitle, cardContent, null);
+        this.response.cardRenderer(cardTitle, cardContent, null);
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
     },
     'readPagedItemsSingleMode' : function (items) {
         // Read items to the user
@@ -274,13 +304,18 @@ var speechHandlers = {
             message += 'You can say next for more. ';
             cardContent += 'You can say next for more. ';
         }
-        this.emit(':askWithCard', message, message, cardTitle, cardContent, null);
+        this.response.cardRenderer(cardTitle, cardContent, null);
+        this.response.speak(message).listen(message);
+
+        this.emit(':responseReady');
     },
     'feedEmptyError' : function () {
         // Output sorry message when requested feed has no items
         var message = 'Sorry, the feed is empty. Please select another feed.';
         var reprompt = 'Sorry, the feed is empty. Please select another feed.';
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+
+        this.emit(':responseReady');
     },
     'justStarted' : function () {
         // Outputs message when user says previous when already at start of feed
@@ -288,7 +323,9 @@ var speechHandlers = {
             'You can say next to hear subsequent items or you can say list categories to select other feeds.';
         var reprompt = 'You can say next to hear subsequent items or ' +
             'you can say list categories to select other feeds.';
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+            
+        this.emit(':responseReady');
     },
     'alreadyEnded' : function () {
         // Outputs message when user says next when already at end of feed
@@ -296,7 +333,9 @@ var speechHandlers = {
             'You can say list categories to select other feeds or you can say previous to hear previous feeds.';
         var reprompt = 'You can say list categories to select other categories or ' +
             'you can say previous to hear previous feeds.';
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+            
+        this.emit(':responseReady');
     },
     'helpStartMode' : function () {
         // Outputs helps message when in START MODE
@@ -313,7 +352,8 @@ var speechHandlers = {
         // Call category helper to get list of all categories
         categoryHelper((categoryList) => {
             message += categoryList;
-            this.emit(':ask', message, message);
+            this.response.speak(message).listen(message);
+            this.emit(':responseReady');
         });
     },
     'helpFeedMode' : function () {
@@ -330,7 +370,9 @@ var speechHandlers = {
             'You can also ask, give details for item 1 to get more information about the item. ' +
             constants.breakTime['100'] +
             'What would you like to do?';
-        this.emit(':ask', message, message);
+            this.response.speak(message).listen(message);
+        
+            this.emit(':responseReady');    
     },
     'helpNoNewItemMode' : function () {
         // Outputs helps message when in NO NEW ITEM MODE
@@ -338,25 +380,29 @@ var speechHandlers = {
             'You can say yes to hear older items and no to select other feeds.'
             + constants.breakTime['100'] +
             'What would you like to do?';
-        this.emit(':ask', message, message);
+            this.response.speak(message).listen(message);
+            this.emit(':responseReady');
     },
     'helpSingleFeedMode' : function () {
         var message = config.welcome_message + 'To navigate through the feed, you can say commands like next and previous.';
-        this.emit(':ask', message, message);
+        this.response.speak(message).listen(message);
+        this.emit(':responseReady');
     },
     'readItemSpeechHelper' : function () {
         // Output sorry message to user. Metrics created using cloudwatch logs to see how many users requests are made
         var message = 'Sorry, this feature is not available.'
             + constants.breakTime['250'] +
             'You can continue navigating through the feed by saying next.';
-        this.emit(':ask', message, message);
+            this.response.speak(message).listen(message);
+            this.emit(':responseReady');
     },
     'sendItemSpeechHelper' : function () {
         // Output sorry message to user. Metrics created using cloudwatch logs to see how many users requests are made
         var message = 'Sorry, this feature is not available.'
             + constants.breakTime['250'] +
             'You can continue navigating through the feed by saying next.';
-        this.emit(':ask', message, message);
+            this.response.speak(message).listen(message);
+            this.emit(':responseReady');
     },
     'itemInfoError' : function () {
         // Handle itemInfo request when not in feed mode
@@ -368,9 +414,11 @@ var speechHandlers = {
         // Call category helper to get list of all categories
         categoryHelper((categoryList) => {
             reprompt += categoryList;
-            this.emit(':ask', message, reprompt);
+            this.response.speak(message).listen(reprompt);
+            this.emit(':responseReady');
         });
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+        this.emit(':responseReady');
     },
     'sendItemError' : function () {
         // Handle sendItem request when not in feed mode
@@ -382,9 +430,11 @@ var speechHandlers = {
         // Call category helper to get list of all categories
         categoryHelper((categoryList) => {
             reprompt += categoryList;
-            this.emit(':ask', message, reprompt);
+            this.response.speak(message).listen(reprompt);
+            this.emit(':responseReady');
         });
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+        this.emit(':responseReady');
     },
     'unhandledStartMode' : function () {
         // Help user with possible options in _FEED_MODE
@@ -395,7 +445,8 @@ var speechHandlers = {
         // Call category helper to get list of all categories
         categoryHelper((categoryList) => {
             message += categoryList;
-            this.emit(':ask', message, message);
+            this.response.speak(message).listen(message);
+            this.emit(':responseReady');
         });
     },
     'unhandledFeedMode' : function () {
@@ -409,7 +460,8 @@ var speechHandlers = {
             'You can also ask, give details for item one to get more information about the item. ' +
             constants.breakTime['100'] +
             'What would you like to do?';
-        this.emit(':ask', message, message);
+        this.response.speak(message).listen(message);
+        this.emit(':responseReady');
     },
     'unhandledNoNewItemMode' : function () {
         // Help user with possible options in _NO_NEW_ITEM_MODE
@@ -418,11 +470,13 @@ var speechHandlers = {
             'You can say yes to hear older items and no to select other feeds.'
             + constants.breakTime['100'] +
             'What would you like to do?';
-        this.emit(':ask', message, reprompt);
+        this.response.speak(message).listen(reprompt);
+        this.emit(':responseReady');
     },
     'unhandledSingleFeedMode' : function () {
         var message = 'Sorry, you can say next and previous to navigate through the feed. What would you like to do?';
-        this.emit(':ask', message, message);
+        this.response.speak(message).listen(message);
+        this.emit(':responseReady');
     },
     'reportError' : function () {
         // Output error message and close the session
