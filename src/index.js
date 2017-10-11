@@ -9,7 +9,7 @@ var speechHandlers = require('./speechHandlers');
 
 exports.handler = function(event, context, callback){
     var alexa = Alexa.handler(event, context);
-    alexa.appId = config.appId;
+    alexa.APP_ID = config.appId;
     alexa.dynamoDBTableName = config.dynamoDBTableName;
     alexa.registerHandlers(eventHandlers, stateHandlers.startModeIntentHandlers, stateHandlers.feedModeIntentHandlers,
         stateHandlers.noNewItemsModeIntentHandlers, stateHandlers.singleFeedModeIntentHandlers,intentHandlers, speechHandlers);
