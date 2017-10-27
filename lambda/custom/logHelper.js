@@ -1,9 +1,7 @@
-"use strict";
-
-var logHelper = function () {
+const logHelper = function () {
     return{
         logSessionStarted: function(session) {
-            var sessionStartedJsonEvent =
+            let sessionStartedJsonEvent =
             {
                 "eventType" : "SessionStarted",
                 "event" : {
@@ -15,7 +13,7 @@ var logHelper = function () {
             logJsonEvent(sessionStartedJsonEvent);
         },
         logLaunchRequest: function (session, launchRequest) {
-            var launchRequestJsonEvent =
+            let launchRequestJsonEvent =
             {
                 "eventType" : "LaunchRequest",
                 "event" : {
@@ -28,7 +26,7 @@ var logHelper = function () {
             logJsonEvent(launchRequestJsonEvent);
         },
         logReceiveIntent: function(session, intentRequest) {
-            var receiveIntentJsonEvent =
+            let receiveIntentJsonEvent =
             {
                 "eventType" : "ReceiveIntent",
                 "event": {
@@ -43,7 +41,7 @@ var logHelper = function () {
             logJsonEvent(receiveIntentJsonEvent);
         },
         logAPICall: function(session, apiName) {
-            var apiCallJsonEvent =
+            let apiCallJsonEvent =
             {
                 "eventType" : "APICall",
                 "event": {
@@ -56,7 +54,7 @@ var logHelper = function () {
             logJsonEvent(apiCallJsonEvent);
         },
         logAPISuccesses: function(session, apiName) {
-            var apiSuccessJsonEvent =
+            let apiSuccessJsonEvent =
             {
                 "eventType" : "APISuccess",
                 "event": {
@@ -69,7 +67,7 @@ var logHelper = function () {
             logJsonEvent(apiSuccessJsonEvent);
         },
         logAPIError: function(session, apiName, error) {
-            var apiErrorJsonEvent =
+            let apiErrorJsonEvent =
             {
                 "eventType" : "APIError",
                 "event": {

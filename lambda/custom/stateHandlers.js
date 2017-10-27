@@ -1,10 +1,8 @@
-'use strict';
+const Alexa = require('alexa-sdk');
+const config = require('./configuration');
+const constants = require('./constants');
 
-var Alexa = require('alexa-sdk');
-var config = require('./configuration');
-var constants = require('./constants');
-
-var stateHandlers = {
+const stateHandlers = {
     startModeIntentHandlers : Alexa.CreateStateHandler(constants.states.START_MODE, {
         /*
          *  All Intent Handlers for state : _START_MODE
@@ -255,17 +253,17 @@ function categoryHelper(intentSlot, callback) {
      *      2) Ordinal - (1st, 2nd, 3rd ...)
      *      3) Category Name - (World, Technology, Politics ...)
      */
-    var categoryList = Object.keys(config.feeds);
-    var index;
+    let categoryList = Object.keys(config.feeds);
+    let index;
     if (intentSlot.Index && intentSlot.Index.value) {
         index = parseInt(intentSlot.Index.value);
         index--;
     } else if (intentSlot.Ordinal && intentSlot.Ordinal.value) {
-        var str = intentSlot.Ordinal.value;
+        let str = intentSlot.Ordinal.value;
         if (str === "second") {
             /*
               * Alexa Skills Kit passes 'second' instead of '2nd' unlike the case for different numbers.
-              * Thus, considering this case explicitly. 
+              * Thus, considering this case explicitly.
               */
             index = 2;
         } else {
@@ -286,7 +284,7 @@ function categoryHelper(intentSlot, callback) {
      *  Else : request user to repeat the category
      */
     if (index >= 0 && index < categoryList.length) {
-        var category = Object.keys(config.feeds)[index];
+        let category = Object.keys(config.feeds)[index];
         callback(category);
     } else {
         console.log('Illegal index : ' + index);

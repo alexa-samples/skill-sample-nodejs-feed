@@ -1,17 +1,15 @@
-'use strict';
+const async = require('async');
 
-var async = require('async');
+const constants = require('./constants');
+const config = require('./configuration');
+const feedHelper = require('./feedHelper');
+const logHelper = require('./logHelper');
+const s3Helper = require('./s3Helper');
 
-var constants = require('./constants');
-var config = require('./configuration');
-var feedHelper = require('./feedHelper');
-var logHelper = require('./logHelper');
-var s3Helper = require('./s3Helper');
-
-var eventHandlers = {
+let eventHandlers = {
     'NewSession' : function () {
         logHelper.logSessionStarted(this.event.session);
-        
+
         // Initialize session attributes
         this.attributes['start'] = true;
         this.attributes['category'] = '';
@@ -47,8 +45,8 @@ var eventHandlers = {
             }
         } else if (this.event.request.type === 'IntentRequest') {
             logHelper.logReceiveIntent(this.event.session, this.event.request);
-            
-            var intentName = this.event.request.intent.name;
+
+            let intentName = this.event.request.intent.name;
             this.emitWithState(intentName);
         } else {
             console.log('Unexpected request : ' + this.event.request.type);
@@ -73,7 +71,7 @@ var eventHandlers = {
                     logHelper.logAPISuccesses(this.event.session, 'S3');
                     // Updating session attributes to store only the required attributes within DynamoDB.
                     deleteAttributes.call(this);
-               
+
                     if (message != constants.terminate) {
                         message = message || '';
                         this.response.speak(message);
@@ -86,10 +84,10 @@ var eventHandlers = {
         } else {
             // Updating session attributes to store only the required attributes within DynamoDB.
             deleteAttributes.call(this);
-            
+
             if (message != constants.terminate) {
                 message = message || '';
-                
+
                 this.response.speak(message);
                 this.emit(':responseReady');
             } else {
@@ -102,15 +100,15 @@ var eventHandlers = {
 module.exports = eventHandlers;
 
 function deleteAttributes() {
-    var latestItem = this.attributes['latestItem'];
-    var favoriteCategories = this.attributes['favoriteCategories'];
+    let latestItem = this.attributes['latestItem'];
+    let favoriteCategories = this.attributes['favoriteCategories'];
 
     Object.keys(this.attributes).forEach((attribute) => {
         delete this.attributes[attribute];
     });
 
     this.attributes.latestItem = latestItem;
-    
+
     if (this.handler.state != constants.states.SINGLE_FEED_MODE) {
         this.attributes.favoriteCategories = favoriteCategories;
     }

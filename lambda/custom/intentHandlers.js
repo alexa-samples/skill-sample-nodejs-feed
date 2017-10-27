@@ -1,27 +1,25 @@
-'use strict';
+const async = require('async');
+const config = require('./configuration');
+const constants = require('./constants');
+const feedHelper = require('./feedHelper');
+const logHelper = require('./logHelper');
+const s3Helper = require('./s3Helper');
 
-var async = require('async');
-var config = require('./configuration');
-var constants = require('./constants');
-var feedHelper = require('./feedHelper');
-var logHelper = require('./logHelper');
-var s3Helper = require('./s3Helper');
+let items = [];
 
-var items = [];
-
-var intentHandlers = {
+let intentHandlers = {
     'selectCategory' : function () {
         /*
-         *  If file present for given category : 
+         *  If file present for given category :
          *      * If file never read : initialize parameters and read items
-         *      * Else : continue from last stopped position 
+         *      * Else : continue from last stopped position
          *  Else : Call feedHelper to fetch feeds.
          */
-        var category = this.attributes['category'];
-        var fileNameKey = 'fileName' + category;
-        var versionIdKey = 'versionId' + category;
-        var indexKey = 'index' + category;
-        var directionKey = 'direction' + category;
+        let category = this.attributes['category'];
+        let fileNameKey = 'fileName' + category;
+        let versionIdKey = 'versionId' + category;
+        let indexKey = 'index' + category;
+        let directionKey = 'direction' + category;
         // All files will have following naming convention : '<CATEGORY NAME>_feeds.json'
         this.attributes[fileNameKey] = category + '_feeds.json';
 
@@ -69,8 +67,8 @@ var intentHandlers = {
                        this.emit('reportError');
                    }
                } else {
-                   var allowedTimePeriod = constants.updateFeedTime*60*1000; // Convert minutes to milliSeconds
-                   var timeSinceLastModified = (new Date()).getTime() - new Date(data.LastModified);
+                   let allowedTimePeriod = constants.updateFeedTime*60*1000; // Convert minutes to milliSeconds
+                   let timeSinceLastModified = (new Date()).getTime() - new Date(data.LastModified);
                    if (timeSinceLastModified < allowedTimePeriod) {
                        // File is created within allowed time period. Using this feed version.
                        items = JSON.parse(data.Body);
@@ -103,16 +101,16 @@ var intentHandlers = {
          *  Store these items in an array and call speechHandler function to process for output
          */
         loadItems.call(this, () => {
-            var category = this.attributes['category'];
-            var indexKey = 'index' + category;
-            var directionKey = 'direction' + category;
-            var feedEndedKey = 'feedEnded' + category;
-            var justStartedKey = 'justStarted' + category;
+            let category = this.attributes['category'];
+            let indexKey = 'index' + category;
+            let directionKey = 'direction' + category;
+            let feedEndedKey = 'feedEnded' + category;
+            let justStartedKey = 'justStarted' + category;
             if (!this.attributes[feedEndedKey]) {
-                var pagedItems = [];
-                var feedLength = items.length;
-                var index;
-                var currentIndex = this.attributes[indexKey];
+                let pagedItems = [];
+                let feedLength = items.length;
+                let index;
+                let currentIndex = this.attributes[indexKey];
                 if (currentIndex === 0) {
                     // Mark flag to signify start of feed
                     this.attributes[justStartedKey] = true;
@@ -124,7 +122,7 @@ var intentHandlers = {
                     this.attributes[directionKey] = 'forward';
                     currentIndex += config.number_feeds_per_prompt;
                 }
-                var currentPaginationEnd = currentIndex + config.number_feeds_per_prompt;
+                let currentPaginationEnd = currentIndex + config.number_feeds_per_prompt;
                 for (index = currentIndex; index < currentPaginationEnd && index < feedLength; index++) {
                     pagedItems.push(items[index]);
                 }
@@ -149,21 +147,21 @@ var intentHandlers = {
          *  Store these items in an array and call speechHandler function to process for output
          */
         loadItems.call(this, () => {
-            var category = this.attributes['category'];
-            var indexKey = 'index' + category;
-            var directionKey = 'direction' + category;
-            var feedEndedKey = 'feedEnded' + category;
-            var justStartedKey = 'justStarted' + category;
+            let category = this.attributes['category'];
+            let indexKey = 'index' + category;
+            let directionKey = 'direction' + category;
+            let feedEndedKey = 'feedEnded' + category;
+            let justStartedKey = 'justStarted' + category;
             if (!this.attributes[justStartedKey]) {
-                var pagedItems = [];
-                var index;
-                var currentIndex = this.attributes[indexKey];
+                let pagedItems = [];
+                let index;
+                let currentIndex = this.attributes[indexKey];
                 if (this.attributes[directionKey] === 'forward') {
                     // Adjustment for change in direction
                     currentIndex -= config.number_feeds_per_prompt;
                     this.attributes[directionKey] = 'backward';
                 }
-                var currentPaginationStart = currentIndex - config.number_feeds_per_prompt;
+                let currentPaginationStart = currentIndex - config.number_feeds_per_prompt;
                 if (this.attributes[feedEndedKey]) {
                     this.attributes[feedEndedKey] = null;
                 }
@@ -190,12 +188,12 @@ var intentHandlers = {
     'startOver' : function () {
         /*
          * To re-initialize all attributes
-         * Call load feeds to read first page of items 
+         * Call load feeds to read first page of items
          */
-        var category = this.attributes['category'];
-        var indexKey = 'index' + category;
-        var directionKey = 'direction' + category;
-        var feedEndedKey = 'feedEnded' + category;
+        let category = this.attributes['category'];
+        let indexKey = 'index' + category;
+        let directionKey = 'direction' + category;
+        let feedEndedKey = 'feedEnded' + category;
         // Reset index and direction
         this.attributes[indexKey] = 0;
         this.attributes[directionKey] = 'forward';
@@ -206,14 +204,14 @@ var intentHandlers = {
         this.emit('readItems');
     },
     'selectFavorite' : function () {
-        var directionKey = 'directionFavorite';
+        let directionKey = 'directionFavorite';
         this.attributes[directionKey] = 'forward';
 
         if (this.attributes['favoriteFilePresent']) {
             // Favorite file present : call get feed to resume favorite feed
-            var category = 'Favorite';
+            let category = 'Favorite';
             this.attributes['category'] = category;
-            var indexKey = 'index' + category;
+            let indexKey = 'index' + category;
             if (this.attributes[indexKey] != 0) {
                 // Feed pointer not at start, thus adjust pointer to resume from last read item
                 this.attributes[indexKey] -= config.number_feeds_per_prompt;
@@ -230,13 +228,13 @@ var intentHandlers = {
              *      * Merge all items, remove duplicates, and sort them using time
              * Else : give appropriate message to the user
              */
-            var favoriteCategories = this.attributes['favoriteCategories'];
+            let favoriteCategories = this.attributes['favoriteCategories'];
             if (favoriteCategories.length > 0) {
-                var asyncDataCollection = [];
+                let asyncDataCollection = [];
                 // Add tasks that needs to be performed asynchronously
                 favoriteCategories.forEach((category) => {
-                    var fileNameKey = 'fileName' + category;
-                    var versionIdKey = 'versionId' + category;
+                    let fileNameKey = 'fileName' + category;
+                    let versionIdKey = 'versionId' + category;
 
                     asyncDataCollection.push((asyncCallback) => {
                         if (this.attributes[versionIdKey]) {
@@ -250,7 +248,7 @@ var intentHandlers = {
                                 } else {
                                     logHelper.logAPISuccesses(this.event.session, 'S3');
                                     if (data && data.Body) {
-                                        var feeds = JSON.parse(data.Body);
+                                        let feeds = JSON.parse(data.Body);
                                         asyncCallback(null, feeds);
                                     } else {
                                         console.log('Data Retrieved is empty.');
@@ -260,7 +258,7 @@ var intentHandlers = {
                             });
                         } else {
                             // File not present, thus fetch feeds, store in S3 and return items
-                            var indexKey = 'index' + category;
+                            let indexKey = 'index' + category;
                             // Initialize attributes
                             this.attributes[fileNameKey] = category + '_feeds.json';
                             this.attributes[indexKey] = -1;
@@ -290,10 +288,10 @@ var intentHandlers = {
                                        asyncCallback(err, data);
                                    }
                                } else {
-                                   var allowedTimePeriod = constants.updateFeedTime*60*1000;
+                                   let allowedTimePeriod = constants.updateFeedTime*60*1000;
                                    if (new Date() -  data.LastModified < allowedTimePeriod) {
                                        // File is created within allowed time period. Using this feed version.
-                                       var feedItems = JSON.parse(data.Body);
+                                       let feedItems = JSON.parse(data.Body);
                                        this.attributes[versionIdKey] = data.VersionId;
                                        // Call new item notification to compute number of new items available
                                        asyncCallback(null, feedItems);
@@ -328,7 +326,7 @@ var intentHandlers = {
                         console.log("Async Error : " + err);
                         this.emit('reportError');
                     } else {
-                        var allFeeds = {};
+                        let allFeeds = {};
                         items = [];
                         // Merge all items and eliminate duplicates
                         results.forEach(function (feeds) {
@@ -336,19 +334,19 @@ var intentHandlers = {
                                 allFeeds[feed.title] = feed;
                             });
                         });
-                        for (var feed in allFeeds) {
+                        for (let feed in allFeeds) {
                             items.push(allFeeds[feed]);
                         }
                         // Sort all items based on the date
                         items.sort(function (a, b) {
                             return new Date(b.date) - new Date(a.date);
                         });
-                        // Re-initialize the count variable since order disrupted during sort
-                        for (var index = 0; index < items.length; index++) {
+                        // Re-initialize the count letiable since order disrupted during sort
+                        for (let index = 0; index < items.length; index++) {
                             items[index].count = index;
                         }
                         // Save all processed items in a file
-                        var fileNameKey = 'fileNameFavorite';
+                        let fileNameKey = 'fileNameFavorite';
                         randomNameGenerator((fileName) => {
                             this.attributes[fileNameKey] = fileName;
                             feedHelper.stringifyItems(items, (feedData) => {
@@ -394,7 +392,7 @@ var intentHandlers = {
          *      * Call deleteFavoriteFile
          *   Else : give appropriate message to the user
          */
-        var categoryIndex = this.attributes['favoriteCategories'].indexOf(category);
+        let categoryIndex = this.attributes['favoriteCategories'].indexOf(category);
         if (categoryIndex === -1) {
             this.attributes['favoriteCategories'].push(category);
             console.log(category + ' added to favorites.');
@@ -410,9 +408,9 @@ var intentHandlers = {
         /*
          * Identify current category
          * If category is favorite : give error message
-         * Else : add category to favorite if not present and give appropriate message 
+         * Else : add category to favorite if not present and give appropriate message
          */
-        var category = this.attributes['category'];
+        let category = this.attributes['category'];
         if (category != 'Favorite') {
             this.emit('addFavorite', category);
         } else {
@@ -426,7 +424,7 @@ var intentHandlers = {
          *      * call deleteFavoriteFile
          *   Else : give appropriate message to the user
          */
-        var categoryIndex = this.attributes['favoriteCategories'].indexOf(category);
+        let categoryIndex = this.attributes['favoriteCategories'].indexOf(category);
         if (categoryIndex > -1) {
             this.attributes['favoriteCategories'].splice(categoryIndex,1);
             console.log(category + ' removed from favorites.');
@@ -442,9 +440,9 @@ var intentHandlers = {
         /*
          * Identify current category
          * If category is favorite : give error message
-         * Else : remove category from favorite and give appropriate message 
+         * Else : remove category from favorite and give appropriate message
          */
-        var category = this.attributes['category'];
+        let category = this.attributes['category'];
         if (category != 'Favorite') {
             this.emit('removeFavorite', category);
         } else {
@@ -452,9 +450,9 @@ var intentHandlers = {
         }
     },
     'launchSingleMode' : function () {
-        var category = Object.keys(config.feeds)[0];
-        var fileNameKey = 'fileName' + category;
-        var versionIdKey = 'versionId' + category;
+        let category = Object.keys(config.feeds)[0];
+        let fileNameKey = 'fileName' + category;
+        let versionIdKey = 'versionId' + category;
         // Initialize attributes
         this.attributes['category'] = category;
         this.attributes[fileNameKey] = 'feeds.json';
@@ -479,7 +477,7 @@ var intentHandlers = {
             } else {
                 logHelper.logAPISuccesses(this.event.session, 'S3');
                 if (data) {
-                    var allowedTimePeriod = constants.updateFeedTime*60*1000;
+                    let allowedTimePeriod = constants.updateFeedTime*60*1000;
                     if ((new Date() -  data.LastModified < allowedTimePeriod)) {
                         items = JSON.parse(data.Body);
                         this.attributes[versionIdKey] = data.VersionID;
@@ -511,9 +509,9 @@ var intentHandlers = {
 module.exports = intentHandlers;
 
 function fetchFeed(callback) {
-    var category = this.attributes['category'];
-    var fileNameKey = 'fileName' + category;
-    var versionIdKey = 'versionId' + category;
+    let category = this.attributes['category'];
+    let fileNameKey = 'fileName' + category;
+    let versionIdKey = 'versionId' + category;
 
     logHelper.logAPICall(this.event.session, 'Feed Parser');
     // Call feedHelper to fetch feeds for given category
@@ -544,7 +542,7 @@ function fetchFeed(callback) {
 }
 
 function loadItems(callback) {
-    // If data already present in global variable, return back
+    // If data already present in global letiable, return back
     if (items) {
         return callback();
     }
@@ -552,9 +550,9 @@ function loadItems(callback) {
      * Load items stored in the S3 bucket
      * Call specific event based on the status of the feed with the direction passed
      */
-    var category = this.attributes['category'];
-    var fileNameKey = 'fileName' + category;
-    var versionIdKey = 'versionId' + category;
+    let category = this.attributes['category'];
+    let fileNameKey = 'fileName' + category;
+    let versionIdKey = 'versionId' + category;
     logHelper.logAPICall(this.event.session, 'S3');
     // Retrieve feed data stored in S3 storage
     s3Helper.getObject(this.attributes[fileNameKey], this.attributes[versionIdKey],(err, data) => {
@@ -575,19 +573,19 @@ function loadItems(callback) {
 }
 
 function newItemNotification(callback) {
-    var category = this.attributes['category'];
-    var indexKey = 'index' + category;
-    var directionKey = 'direction' + category;
-    var justStartedKey = 'justStarted' + category;
+    let category = this.attributes['category'];
+    let indexKey = 'index' + category;
+    let directionKey = 'direction' + category;
+    let justStartedKey = 'justStarted' + category;
     // Initialize index and direction
     this.attributes[indexKey] = 0;
     this.attributes[directionKey] = 'forward';
     this.attributes[justStartedKey] = true;
     // Calculate number of new items available in the feed since the last visit
-    var newItemCount = -1;
+    let newItemCount = -1;
     if (this.attributes['latestItem'] && this.attributes['latestItem'][category]) {
-        var lastItemTitle = this.attributes['latestItem'][category];
-        for (var index = 0; index < items.length; index++) {
+        let lastItemTitle = this.attributes['latestItem'][category];
+        for (let index = 0; index < items.length; index++) {
             if (items[index].title === lastItemTitle) {
                 newItemCount = index;
                 break;
@@ -627,14 +625,14 @@ function deleteFavoriteFile(callback) {
         });
     } else {
         callback();
-    }    
+    }
 }
 
 function randomNameGenerator(callback) {
     // Generate file name.
-    var fileName = '';
-    var potentialChar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    for (var i=0; i<10; i++) {
+    let fileName = '';
+    let potentialChar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    for (let i=0; i<10; i++) {
         fileName += potentialChar.charAt(Math.floor(Math.random() * potentialChar.length));
     }
     fileName += '.json';

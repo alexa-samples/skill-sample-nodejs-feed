@@ -1,14 +1,12 @@
-"use strict";
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3();
+const config = require("./configuration");
 
-var AWS = require("aws-sdk");
-var s3 = new AWS.S3();
-var config = require("./configuration");
-
-var s3Helper = function () {
+const s3Helper = function () {
     return {
         // Get file from S3
         getObject : function (fileName, versionId, callback) {
-            var params = {
+            let params = {
                 Bucket: config.s3BucketName,
                 Key: fileName
             };
@@ -21,10 +19,10 @@ var s3Helper = function () {
         },
         // Put file into S3
         putObject : function (fileName, data, callback) {
-            var expirationDate = new Date();
+            let expirationDate = new Date();
             // Assuming a user would not remain active in the same session for over 1 hr.
             expirationDate = new Date(expirationDate.setHours(expirationDate.getHours() + 1));
-            var params = {
+            let params = {
                 Bucket: config.s3BucketName,
                 Key: fileName,
                 Body: data,
@@ -36,7 +34,7 @@ var s3Helper = function () {
         },
         // Delete file from S3
         deleteObject : function (fileName, versionId,callback) {
-            var params = {
+            let params = {
                 Bucket: config.s3BucketName,
                 Key : fileName,
                 VersionId : versionId
@@ -47,7 +45,7 @@ var s3Helper = function () {
         },
         // Delete files from S3
         deleteObjects : function (objects, callback) {
-            var params = {
+            let params = {
                 Bucket: config.s3BucketName,
                 Delete: {
                     Objects : objects
