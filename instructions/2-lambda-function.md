@@ -17,13 +17,29 @@ In the [first step of this guide](https://github.com/alexa/skill-sample-nodejs-f
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-3-check-region._TTH_.png"/>
 
-4.  **Click the "Create a Lambda function" button.** It should be near the top of your screen.  (If you don't see this button, it is because you haven't created a Lambda function before.  Click the blue "Get Started" button near the center of your screen.)
+1. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs.
 
-    <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-4-create-a-lambda-function._TTH_.png" />
+       ![create_role_1](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-1.PNG "AWS Create Role Screenshot 1")
+       ![create_role_2](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-2.PNG "AWS Create Role Screenshot 2")
+       ![create_role_3](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-3.PNG "AWS Create Role Screenshot 3")
 
-5.  **Choose the blueprint named "alexa-skill-kit-sdk-factskill".** We have created a blueprint as a shortcut to getting everything set up for your skill. You can search for a blueprint using the provided search box.  This blueprint adds the alexa-sdk to your Lambda function so that you don't have to upload it yourself.
+1. Create an AWS Lambda function named MyFeedSkillLambdaFunction.
+      1. Under "Select blueprint", choose skip.
 
-    <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/fact/2-5-blueprint._TTH_.png" />  <!--TODO: THIS IMAGE NEEDS TO BE CUSTOMIZED FOR YOUR SKILL TEMPLATE. -->
+1. Under "Configure function":
+  1. Enter "MyFeedSkillLambdaFunction" under "Name".  
+  1. Choose the role you created above under "Existing role".
+  1. Change the "Timeout" to 30 seconds, since feeds can become an issue.
+  1. Leave the defaults for everything else.
+  1. Note the ARN of the Lambda you've created, which you'll need later.
+
+  1. Create an AWS S3 Bucket with the name of your choice. Note, the S3 bucket name you choose must be unique across all existing bucket names in Amazon S3. Thus you may have to retry with another name in case of a conflict.
+
+         ![alt text](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-s3-bucket-screenshot-1.PNG "AWS DynamoDB Screenshot")
+
+    1. **[OPTIONAL]** Create an AWS DynamoDB table named MyFeedSkillTable with the case sensitive primary key "userId".
+
+       ![alt text](https://cloud.githubusercontent.com/assets/7671574/17307587/b80787f2-57ea-11e6-9be2-3df26e8e5947.png "AWS DynamoDB Screenshot")
 
 6.  **Configure your trigger.** Click in the dashed box, and select Alexa Skills Kit from the list.  If you don't see Alexa Skills Kit in the list, jump back to step #3 on this page.
 
@@ -35,15 +51,86 @@ In the [first step of this guide](https://github.com/alexa/skill-sample-nodejs-f
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-7-configure-your-function._TTH_.png" />
 
-8.  **Copy and paste the [provided code](https://github.com/alexa/skill-sample-nodejs-feed/blob/master/lambda/custom/index.js) into the Lambda function code box.**  We have provided the code for this skill on [GitHub](https://github.com/alexa/skill-sample-nodejs-feed/blob/master/lambda/custom/index.js).  Delete the contents of the code box, and paste the contents of the new code.
+8.  8.  **Select "Upload a .ZIP file" as your Code Entry Type** Then click "Upload" and select the zip file you created with the command above.
 
 9.  **Set up your Lambda function role.**  If you haven't done this before, we have a [detailed walkthrough for setting up your first role for Lambda](https://github.com/alexa/skill-sample-nodejs-feed/blob/master/lambda-role.md).  If you have done this before, set your **Existing role** value to "lambda_basic_execution."
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-9-lambda-function-role._TTH_.png" />
 
-10. **For this guide, you can skip all of the Advanced settings.**  Click the **Next** button to move to the Review screen.
+10. **For this skill, you'll need to set up your localenvironment to run the deployment script.**  
 
-    <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-10-next-button._TTH_.png" />
+      1. Configure AWS credentials the tool will use to upload code to your Skill.  You do this by creating a file under a ".aws" directory in your home directory.
+
+      2. The file should have the format, and include keys you retrieve from the AWS console:
+
+          ```
+          [default]
+          aws_access_key_id = [KEY FROM AWS]
+          aws_secret_access_key = [SECRET KEY FROM AWS]
+          ```
+
+      3.	Setup [NodeJS and NPM](https://nodejs.org/en/download/).
+
+      4.	Get the code and install dependencies:
+
+          ```
+          git clone  https://github.com/alexa/skill-sample-nodejs-feed.git
+          cd skill-sample-nodejs-feed/src
+          npm install
+          ```
+
+1. Configure the Project to Use Your Feed
+
+      1. Open ```/lambda/custom/configuration.js``` file.
+
+      2. Update the following information to configure the skill:
+
+          * appId : Your Skill's Application ID from the Skill you created at https://developer.amazon.com.
+          * welcome_message : A welcome message that will be spoken to the user when they open your skill.
+          * number_feeds_per_prompt : The number of items the skill will read each time the user invokes it.
+          * display_only_feed_title : A boolean flag that determines whether to speak out the title-only or title and summary of the items in your feed.
+          * display_only_title_in_card : A boolean flag to decide whether to display a card with the title only or title and summary of the items in your feed.
+          * categories : The list of RSS feeds you want to include in your Skill.  Each feed will be treated as a category.
+          * speech_style_for_numbering_feeds : Naming convention for each item.
+          * s3BucketName : Your S3 Bucket Name
+          * dynamoDBTableName : Your DynamoDB Table Name (If not created, the skill will create it.)
+
+      3. A sample configuration :
+
+          ```javascript
+          let config = {
+              appId : 'amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+              welcome_message : 'Welcome to Feed Skill',
+              number_feeds_per_prompt : 3,
+              display_only_feed_title : true,
+              display_only_title_in_card : true,
+              categories : {
+                  'feed name' : 'http://www.example.com/rss-feed.xml'
+              },
+              speech_style_for_numbering_feeds : 'Item',
+              s3BucketName : 'my-feed-skill-bucket',
+              dynamoDBTableName : 'MyFeedSkillBucket'
+          };
+          ```
+
+1. Deploy Your Skill
+
+      1. Go to the ```skill-sample-nodejs-feed/lambda/bin/``` directory and run ```deploy.js``` using Node.
+
+          ```
+          npm install aws-sdk
+          node deploy.js
+          ```
+
+      2. Go to the the ```skill-sample-nodejs-feed/lambda/custom/``` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself.   Lambda needs to be able to find the ```index.js``` file at the root of the zip file.
+
+      3. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1) and upload the file to your Lambda function, selecting "Code entry type" as "Upload a .ZIP file".
+
+
+
+       Click the **Next** button to move to the Review screen.
+
+          <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-10-next-button._TTH_.png" />
 
 11. **The Review screen is a summary of your choices.  Click Create Function in the bottom left corner.**  You will need to scroll down to find **Create Function.**
 
