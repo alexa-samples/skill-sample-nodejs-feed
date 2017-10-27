@@ -24,9 +24,9 @@ Set these up with these step-by-step instructions:
   1. Create an AWS Lambda function named MyFeedSkillLambdaFunction.
     1. Under "Select blueprint", choose skip.
     1. Under "Configure triggers", select "Alexa Skills Kit" as the trigger.
-  
+
      ![alt text](https://cloud.githubusercontent.com/assets/7671574/17451088/ff126618-5b18-11e6-8f46-fbfb9461ab80.png "AWS Lambda Create Trigger Screenshot")
-     
+
     1. Under "Configure function":
       1. Enter "MyFeedSkillLambdaFunction" under "Name".  
       1. Choose the role you created above under "Existing role".
@@ -77,7 +77,7 @@ Next, you'll setup your local environment to run the deployment script.
 
 ## Configure the Project to Use Your Feed
 
-1. Open ```/src/configuration.js``` file.
+1. Open ```/lambda/custom/configuration.js``` file.
 
 2. Update the following information to configure the skill:
 
@@ -94,7 +94,7 @@ Next, you'll setup your local environment to run the deployment script.
 3. A sample configuration :
 
     ```javascript
-    var config = {
+    let config = {
         appId : 'amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
         welcome_message : 'Welcome to Feed Skill',
         number_feeds_per_prompt : 3,
@@ -111,18 +111,18 @@ Next, you'll setup your local environment to run the deployment script.
 
 ## Deploy Your Skill
 
-1. Go to the ```skill-sample-nodejs-feed/bin/``` directory and run ```deploy.js``` using Node.
+1. Go to the ```skill-sample-nodejs-feed/lambda/bin/``` directory and run ```deploy.js``` using Node.
 
     ```
     npm install aws-sdk
     node deploy.js
     ```
-    
-2. Go to the the ```skill-sample-nodejs-feed/src/``` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself.   Lambda needs to be able to find the ```index.js``` file at the root of the zip file. 
+
+2. Go to the the ```skill-sample-nodejs-feed/lambda/custom/``` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself.   Lambda needs to be able to find the ```index.js``` file at the root of the zip file.
 
 3. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1) and upload the file to your Lambda function, selecting "Code entry type" as "Upload a .ZIP file".
 
-4. Go to the [Developer Portal](https://developer.amazon.com/edw/home.html#/skills/list) copy following content from ```skill-sample-nodejs-feed/speechAssets/``` to the Interaction Model:
+4. Go to the [Developer Portal](https://developer.amazon.com/edw/home.html#/skills/list) copy following content from ```skill-sample-nodejs-feed/models/``` to the Interaction Model:
     * ```CustomSlots-ORDINALS.txt``` to a new custom slot with Type : ORDINAL
     * ```CustomSlots-CATEGORIES.txt``` to a new custom slot with Type : CATEGORY
         * **Note:** This file is not generated.  You'll need to update it with names for each of the feeds you added in your configuration above.

@@ -1,4 +1,4 @@
-var config = require('../src/configuration');
+var config = require('../custom/configuration');
 var fs = require('fs');
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
@@ -14,13 +14,13 @@ if (feeds.length > 1) {
 
     fileOutput += "Favorite";
 
-    fs.writeFile('../speechAssets/CustomSlots-CATEGORY.txt', fileOutput, function (err) {
+    fs.writeFile('../../models/CustomSlots-CATEGORY.txt', fileOutput, function (err) {
         if (err) {
             console.log('Error while creating custom slots value')
             console.log(err.message);
         } else {
             console.log('CustomSlots-CATEGORY.txt generated.');
-        }   
+        }
     });
 }
 
