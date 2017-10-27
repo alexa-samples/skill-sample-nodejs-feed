@@ -8,7 +8,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "ask-custom-feed-reader-default"
+                "uri": "ask-custom-feed-default"
               }
             }
           }

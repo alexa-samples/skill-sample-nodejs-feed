@@ -1,2753 +1,1089 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "minecraft helper",
+      "invocationName": "feed reader",
       "intents": [
         {
-          "name": "RecipeIntent",
+          "name": "AddCurrentToFavorite",
+          "samples": [
+            "add to favorite",
+            "add to favorites",
+            "add as favorite",
+            "add this to favorite",
+            "add this to favorites",
+            "add this to my favorite",
+            "add this to my favorites",
+            "add this category to favorite",
+            "add this category to favorites",
+            "add this category to my favorite",
+            "add this category to my favorites",
+            "add this feed to favorite",
+            "add this feed to favorites",
+            "add this feed to my favorite",
+            "add this feed to my favorites"
+          ],
+          "slots": []
+        },
+        {
+          "name": "AddFavorite",
+          "samples": [
+            "add {Category} to favorite",
+            "add {Category} to favorite category",
+            "add {Category} to favorite categories",
+            "add {Category} to my favorite",
+            "add {Category} to my favorite category",
+            "add {Category} to my favorite categories",
+            "mark {Category} as favorite",
+            "mark {Category} as favorite category",
+            "mark {Category} as favorite categories",
+            "mark {Category} as my favorite",
+            "mark {Category} as my favorite category",
+            "mark {Category} as my favorite categories",
+            "make {Category} as favorite",
+            "make {Category} as favorite category",
+            "make {Category} as favorite categories",
+            "make {Category} as my favorite",
+            "make {Category} as my favorite category",
+            "make {Category} as my favorite categories",
+            "add category {Index} to favorite",
+            "add category {Index} to favorite category",
+            "add category {Index} to favorite categories",
+            "add category {Index} to my favorite",
+            "add category {Index} to my favorite category",
+            "add category {Index} to my favorite categories",
+            "mark category {Index} as favorite",
+            "mark category {Index} as favorite category",
+            "mark category {Index} as favorite categories",
+            "mark category {Index} as my favorite",
+            "mark category {Index} as my favorite category",
+            "mark category {Index} as my favorite categories",
+            "make category {Index} as favorite",
+            "make category {Index} as favorite category",
+            "make category {Index} as favorite categories",
+            "make category {Index} as my favorite",
+            "make category {Index} as my favorite category",
+            "make category {Index} as my favorite categories",
+            "add {Ordinal} category to favorite",
+            "add {Ordinal} to favorite category",
+            "add {Ordinal} to favorite categories",
+            "add {Ordinal} to my favorite",
+            "add {Ordinal} to my favorite category",
+            "add {Ordinal} to my favorite categories",
+            "mark {Ordinal} as favorite",
+            "mark {Ordinal} as favorite category",
+            "mark {Ordinal} as favorite categories",
+            "mark {Ordinal} as my favorite",
+            "mark {Ordinal} as my favorite category",
+            "mark {Ordinal} as my favorite categories",
+            "make {Ordinal} as favorite",
+            "make {Ordinal} as favorite category",
+            "make {Ordinal} as favorite categories",
+            "make {Ordinal} as my favorite",
+            "make {Ordinal} as my favorite category",
+            "make {Ordinal} as my favorite categories",
+            "add {Ordinal} category to favorite category",
+            "add {Ordinal} category to favorite categories",
+            "add {Ordinal} category to my favorite",
+            "add {Ordinal} category to my favorite category",
+            "add {Ordinal} category to my favorite categories",
+            "mark {Ordinal} category as favorite",
+            "mark {Ordinal} category as favorite category",
+            "mark {Ordinal} category as favorite categories",
+            "mark {Ordinal} category as my favorite",
+            "mark {Ordinal} category as my favorite category",
+            "mark {Ordinal} category as my favorite categories",
+            "make {Ordinal} category as favorite",
+            "make {Ordinal} category as favorite category",
+            "make {Ordinal} category as favorite categories",
+            "make {Ordinal} category as my favorite",
+            "make {Ordinal} category as my favorite category",
+            "make {Ordinal} category as my favorite categories",
+            "add {Category} to favorite feed",
+            "add {Category} to favorite feeds",
+            "add {Category} to my favorite feed",
+            "add {Category} to my favorite feeds",
+            "mark {Category} as favorite feed",
+            "mark {Category} as favorite feeds",
+            "mark {Category} as my favorite feed",
+            "mark {Category} as my favorite feeds",
+            "make {Category} as favorite feed",
+            "make {Category} as favorite feeds",
+            "make {Category} as my favorite feed",
+            "make {Category} as my favorite feeds",
+            "add feed {Index} to favorite",
+            "add feed {Index} to favorite feed",
+            "add feed {Index} to favorite feeds",
+            "add feed {Index} to my favorite",
+            "add feed {Index} to my favorite feed",
+            "add feed {Index} to my favorite feeds",
+            "mark feed {Index} as favorite",
+            "mark feed {Index} as favorite feed",
+            "mark feed {Index} as favorite feeds",
+            "mark feed {Index} as my favorite",
+            "mark feed {Index} as my favorite feed",
+            "mark feed {Index} as my favorite feeds",
+            "make feed {Index} as favorite",
+            "make feed {Index} as favorite feed",
+            "make feed {Index} as favorite feeds",
+            "make feed {Index} as my favorite",
+            "make feed {Index} as my favorite feed",
+            "make feed {Index} as my favorite feeds",
+            "add {Ordinal} feed to favorite",
+            "add {Ordinal} to favorite feed",
+            "add {Ordinal} to favorite feeds",
+            "add {Ordinal} to my favorite feed",
+            "add {Ordinal} to my favorite feeds",
+            "mark {Ordinal} as favorite feed",
+            "mark {Ordinal} as favorite feeds",
+            "mark {Ordinal} as my favorite feed",
+            "mark {Ordinal} as my favorite feeds",
+            "make {Ordinal} as favorite feed",
+            "make {Ordinal} as favorite feeds",
+            "make {Ordinal} as my favorite feed",
+            "make {Ordinal} as my favorite feeds",
+            "add {Ordinal} feed to favorite feed",
+            "add {Ordinal} feed to favorite feeds",
+            "add {Ordinal} feed to my favorite",
+            "add {Ordinal} feed to my favorite feed",
+            "add {Ordinal} feed to my favorite feeds",
+            "mark {Ordinal} feed as favorite",
+            "mark {Ordinal} feed as favorite feed",
+            "mark {Ordinal} feed as favorite feeds",
+            "mark {Ordinal} feed as my favorite",
+            "mark {Ordinal} feed as my favorite feed",
+            "mark {Ordinal} feed as my favorite feeds",
+            "make {Ordinal} feed as favorite",
+            "make {Ordinal} feed as favorite feed",
+            "make {Ordinal} feed as favorite feeds",
+            "make {Ordinal} feed as my favorite",
+            "make {Ordinal} feed as my favorite feed",
+            "make {Ordinal} feed as my favorite feeds"
+          ],
           "slots": [
             {
-              "name": "Item",
-              "type": "LIST_OF_ITEMS"
+              "name": "Index",
+              "type": "AMAZON.NUMBER",
+              "samples": []
+            },
+            {
+              "name": "Ordinal",
+              "type": "ORDINAL",
+              "samples": []
+            },
+            {
+              "name": "Category",
+              "type": "CATEGORY",
+              "samples": []
             }
-          ],
-          "samples": [
-            "how can I build a {Item}",
-            "how can I build an {Item}",
-            "how can I build {Item}",
-            "how can I craft a {Item}",
-            "how can I craft an {Item}",
-            "how can I craft {Item}",
-            "how can I get a {Item}",
-            "how can I get an {Item}",
-            "how can I get {Item}",
-            "how can I make a {Item}",
-            "how can I make an {Item}",
-            "how can I make {Item}",
-            "how can you build a {Item}",
-            "how can you build an {Item}",
-            "how can you build {Item}",
-            "how can you craft a {Item}",
-            "how can you craft an {Item}",
-            "how can you craft {Item}",
-            "how can you get a {Item}",
-            "how can you get an {Item}",
-            "how can you get {Item}",
-            "how can you make a {Item}",
-            "how can you make an {Item}",
-            "how can you make {Item}",
-            "how do I build a {Item}",
-            "how do I build an {Item}",
-            "how do I build {Item}",
-            "how do I craft a {Item}",
-            "how do I craft an {Item}",
-            "how do I craft {Item}",
-            "how do I get a {Item}",
-            "how do I get an {Item}",
-            "how do I get {Item}",
-            "how do I make a {Item}",
-            "how do I make an {Item}",
-            "how do I make {Item}",
-            "how do you build a {Item}",
-            "how do you build an {Item}",
-            "how do you build {Item}",
-            "how do you craft a {Item}",
-            "how do you craft an {Item}",
-            "how do you craft {Item}",
-            "how do you get a {Item}",
-            "how do you get an {Item}",
-            "how do you get {Item}",
-            "how do you make a {Item}",
-            "how do you make an {Item}",
-            "how do you make {Item}",
-            "how is a {Item} built",
-            "how is a {Item} crafted",
-            "how is a {Item} made",
-            "how is an {Item} built",
-            "how is an {Item} crafted",
-            "how is an {Item} made",
-            "how is {Item} built",
-            "how is {Item} crafted",
-            "how is {Item} made",
-            "how {Item} is made",
-            "recipe for a {Item}",
-            "recipe for an {Item}",
-            "recipe for {Item}",
-            "recipes for a {Item}",
-            "recipes for an {Item}",
-            "recipes for {Item}",
-            "what are the ingredients for a {Item}",
-            "what are the ingredients for an {Item}",
-            "what are the ingredients for {Item}",
-            "what do I need for a {Item}",
-            "what do I need for an {Item}",
-            "what do I need for {Item}",
-            "what do I need to build a {Item}",
-            "what do I need to build an {Item}",
-            "what do I need to build {Item}",
-            "what do I need to craft a {Item}",
-            "what do I need to craft an {Item}",
-            "what do I need to craft {Item}",
-            "what do I need to get for a {Item}",
-            "what do I need to get for an {Item}",
-            "what do I need to get for {Item}",
-            "what do I need to get to build a {Item}",
-            "what do I need to get to build an {Item}",
-            "what do I need to get to build {Item}",
-            "what do I need to get to craft a {Item}",
-            "what do I need to get to craft an {Item}",
-            "what do I need to get to craft {Item}",
-            "what do I need to get to make a {Item}",
-            "what do I need to get to make an {Item}",
-            "what do I need to get to make {Item}",
-            "what do I need to have to build a {Item}",
-            "what do I need to have to build an {Item}",
-            "what do I need to have to build {Item}",
-            "what do I need to have to craft a {Item}",
-            "what do I need to have to craft an {Item}",
-            "what do I need to have to craft {Item}",
-            "what do I need to have to make a {Item}",
-            "what do I need to have to make an {Item}",
-            "what do I need to have to make {Item}",
-            "what do I need to make a {Item}",
-            "what do I need to make an {Item}",
-            "what do I need to make {Item}",
-            "what do you need for a {Item}",
-            "what do you need for an {Item}",
-            "what do you need for {Item}",
-            "what ingredients do I need to build a {Item}",
-            "what ingredients do I need to build an {Item}",
-            "what ingredients do I need to build {Item}",
-            "what ingredients do I need to craft a {Item}",
-            "what ingredients do I need to craft an {Item}",
-            "what ingredients do I need to craft {Item}",
-            "what ingredients do I need to make a {Item}",
-            "what ingredients do I need to make an {Item}",
-            "what ingredients do I need to make {Item}",
-            "what is in a {Item}",
-            "what is in an {Item}",
-            "what is in {Item}",
-            "what is the recipe for a {Item}",
-            "what is the recipe for an {Item}",
-            "what is the recipe for {Item}",
-            "what's in a {Item}",
-            "what's in an {Item}",
-            "what's in {Item}",
-            "what's the recipe for a {Item}",
-            "what's the recipe for an {Item}",
-            "what's the recipe for {Item}",
-            "how to craft {Item}",
-            "how to craft a {Item}",
-            "how to craft an {Item}",
-            "how to make a {Item}",
-            "how to make an {Item}",
-            "how to make {Item}",
-            "how to build a {Item}",
-            "how to build an {Item}",
-            "how to build {Item}",
-            "how to get a {Item}",
-            "how to get an {Item}",
-            "how to get {Item}"
           ]
         },
         {
-          "name": "AMAZON.RepeatIntent"
+          "name": "AMAZON.CancelIntent",
+          "samples": []
         },
         {
-          "name": "AMAZON.HelpIntent"
+          "name": "AMAZON.HelpIntent",
+          "samples": []
         },
         {
-          "name": "AMAZON.StopIntent"
+          "name": "AMAZON.NextIntent",
+          "samples": []
         },
         {
-          "name": "AMAZON.CancelIntent"
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StartOverIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "GetCategoryList",
+          "samples": [
+            "get categories",
+            "get all categories",
+            "get the categories",
+            "get all the categories",
+            "get category list",
+            "get the category list",
+            "give category list",
+            "give the category list",
+            "list categories",
+            "list the categories",
+            "list all categories",
+            "list all the categories",
+            "back to category",
+            "back to categories",
+            "back to all categories",
+            "back to category list",
+            "go back to category",
+            "go back to categories",
+            "go back to all categories",
+            "go back to category list",
+            "get feeds",
+            "get all feeds",
+            "get the feeds",
+            "get all the feeds",
+            "get feed list",
+            "get the feed list",
+            "give feed list",
+            "give the feed list",
+            "list feeds",
+            "list the feeds",
+            "list all feeds",
+            "list all the feeds",
+            "back to feeds",
+            "back to all feeds",
+            "back to feed list",
+            "go back to feeds",
+            "go back to all feeds",
+            "go back to feed list"
+          ],
+          "slots": []
+        },
+        {
+          "name": "ItemInfo",
+          "samples": [
+            "give details of {Ordinal} item",
+            "give details of item {Index}",
+            "give details of item number {Index}",
+            "give more details of {Ordinal} item",
+            "give more details of item {Index}",
+            "give more details of item number {Index}",
+            "details for {Ordinal} item",
+            "details of item {Index}",
+            "details of item number {Index}",
+            "more details of {Ordinal} item",
+            "more details of item {Index}",
+            "more details of item number {Index}",
+            "give details about {Ordinal} item",
+            "give details about item {Index}",
+            "give details about item number {Index}",
+            "give more details about {Ordinal} item",
+            "give more details about item {Index}",
+            "give more details about item number {Index}",
+            "details about {Ordinal} item",
+            "details about item {Index}",
+            "details about item number {Index}",
+            "more details about {Ordinal} item",
+            "more details about item {Index}",
+            "more details about item number {Index}",
+            "give details of {Ordinal} article",
+            "give details of article {Index}",
+            "give details of article number {Index}",
+            "give more details of {Ordinal} article",
+            "give more details of article {Index}",
+            "give more details of article number {Index}",
+            "details for {Ordinal} article",
+            "details of article {Index}",
+            "details of article number {Index}",
+            "more details of {Ordinal} article",
+            "more details of article {Index}",
+            "more details of article number {Index}",
+            "give details about {Ordinal} article",
+            "give details about article {Index}",
+            "give details about article number {Index}",
+            "give more details about {Ordinal} article",
+            "give more details about article {Index}",
+            "give more details about article number {Index}",
+            "details about {Ordinal} article",
+            "details about article {Index}",
+            "details about article number {Index}",
+            "more details about {Ordinal} article",
+            "more details about article {Index}",
+            "more details about article number {Index}"
+          ],
+          "slots": [
+            {
+              "name": "Index",
+              "type": "AMAZON.NUMBER",
+              "samples": []
+            },
+            {
+              "name": "Ordinal",
+              "type": "ORDINAL",
+              "samples": []
+            }
+          ]
+        },
+        {
+          "name": "ListFavorite",
+          "samples": [
+            "list favorites",
+            "list all favorites",
+            "list my favorites",
+            "list favorite feeds",
+            "list my favorite feeds",
+            "list the favorite feeds",
+            "which is my favorite feed",
+            "which are my favorite feeds",
+            "what is my favorite feed",
+            "what are my favorite feeds"
+          ],
+          "slots": []
+        },
+        {
+          "name": "RemoveCurrentFromFavorite",
+          "samples": [
+            "remove from favorite",
+            "remove from favorites",
+            "remove as favorite",
+            "remove this from favorite",
+            "remove this from favorites",
+            "remove this from my favorite",
+            "remove this from my favorites",
+            "remove this category from favorite",
+            "remove this category from favorites",
+            "remove this category from my favorite",
+            "remove this category from my favorites",
+            "remove this feed from favorite",
+            "remove this feed from favorites",
+            "remove this feed from my favorite",
+            "remove this feed from my favorites"
+          ],
+          "slots": []
+        },
+        {
+          "name": "RemoveFavorite",
+          "samples": [
+            "remove {Category}",
+            "remove {Category} as favorite",
+            "remove {Category} as my favorite",
+            "remove {Category} from favorite",
+            "remove {Category} from favorites",
+            "remove {Category} from my favorite",
+            "remove {Category} from my favorites"
+          ],
+          "slots": [
+            {
+              "name": "Index",
+              "type": "AMAZON.NUMBER",
+              "samples": []
+            },
+            {
+              "name": "Ordinal",
+              "type": "ORDINAL",
+              "samples": []
+            },
+            {
+              "name": "Category",
+              "type": "CATEGORY",
+              "samples": []
+            }
+          ]
+        },
+        {
+          "name": "SelectCategory",
+          "samples": [
+            "{Index}",
+            "category {Index}",
+            "feed {Index}",
+            "number {Index}",
+            "open {Index}",
+            "open category {Index}",
+            "open feed {Index}",
+            "open number {Index}",
+            "open feed number {Index}",
+            "go to {Index}",
+            "go to category {Index}",
+            "go to feed {Index}",
+            "go to number {Index}",
+            "to open feed {Index}",
+            "to open feed number {Index}",
+            "to go to feed {Index}",
+            "to go to feed number {Index}",
+            "to play feed {Index}",
+            "to play feed number {Index}",
+            "to begin feed {Index}",
+            "to begin feed number {Index}",
+            "to start feed {Index}",
+            "to start feed number {Index}",
+            "{Ordinal}",
+            "{Ordinal} category",
+            "{Ordinal} feed",
+            "category {Ordinal}",
+            "feed {Ordinal}",
+            "open {Ordinal}",
+            "open {Ordinal} category",
+            "open {Ordinal} feed",
+            "open category {Ordinal}",
+            "open feed {Ordinal}",
+            "go to {Ordinal}",
+            "go to {Ordinal} category",
+            "go to {Ordinal} feed",
+            "go to category {Ordinal}",
+            "go to feed {Ordinal}",
+            "to open {Ordinal}",
+            "to open {Ordinal} feed",
+            "to open feed {Ordinal}",
+            "to go to {Ordinal}",
+            "to go to {Ordinal} feed",
+            "to go to feed {Ordinal}",
+            "to play {Ordinal}",
+            "to play {Ordinal} feed",
+            "to play feed {Ordinal}",
+            "to begin {Ordinal}",
+            "to begin {Ordinal} feed",
+            "to begin feed {Ordinal}",
+            "to start {Ordinal}",
+            "to start {Ordinal} feed",
+            "to start feed {Ordinal}",
+            "{Category}",
+            "category {Category}",
+            "feed {Category}",
+            "open {Category}",
+            "open category {Category}",
+            "open feed {Category}",
+            "go to {Category}",
+            "go to Category {Category}",
+            "go to feed {Category}",
+            "to open {Category}",
+            "to open {Category} feed",
+            "to play {Category}",
+            "to play {Category} feed",
+            "to start {Category}",
+            "to start {Category} feed",
+            "to begin {Category}",
+            "to begin {Category} feed"
+          ],
+          "slots": [
+            {
+              "name": "Index",
+              "type": "AMAZON.NUMBER",
+              "samples": []
+            },
+            {
+              "name": "Ordinal",
+              "type": "ORDINAL",
+              "samples": []
+            },
+            {
+              "name": "Category",
+              "type": "CATEGORY",
+              "samples": []
+            }
+          ]
+        },
+        {
+          "name": "SelectFavorite",
+          "samples": [
+            "favorite",
+            "favorites",
+            "open favorites",
+            "open favorite feeds",
+            "open my favorites",
+            "open my favorite feeds",
+            "play favorites",
+            "play favorite feeds",
+            "play my favorites",
+            "play my favorite feeds",
+            "start favorites",
+            "start favorite feeds",
+            "start my favorites",
+            "start my favorite feeds",
+            "to open favorites",
+            "to open favorite feeds",
+            "to open my favorites",
+            "to open my favorite feeds",
+            "to play favorites",
+            "to play favorite feeds",
+            "to play my favorites",
+            "to play my favorite feeds",
+            "to begin favorites",
+            "to begin favorite feeds",
+            "to begin my favorites",
+            "to begin my favorite feeds",
+            "to start favorites",
+            "to start favorite feeds",
+            "to start my favorites",
+            "to start my favorite feeds"
+          ],
+          "slots": []
+        },
+        {
+          "name": "SendItem",
+          "samples": [
+            "send details of {Ordinal}",
+            "send details of {Ordinal} item",
+            "send details of item {Index}",
+            "send details of item number {Index}",
+            "send the details of {Ordinal} item",
+            "send the details of item {Index}",
+            "send the details of item number {Index}",
+            "send the link of {Ordinal}",
+            "send the link of item {Index}",
+            "send the link of item number {Index}",
+            "send details of {Ordinal} article",
+            "send details of article {Index}",
+            "send details of article number {Index}",
+            "send the details of {Ordinal} article",
+            "send the details of article {Index}",
+            "send the details of article number {Index}",
+            "send the link of article {Index}",
+            "send the link of article number {Index}"
+          ],
+          "slots": [
+            {
+              "name": "Index",
+              "type": "AMAZON.NUMBER",
+              "samples": []
+            },
+            {
+              "name": "Ordinal",
+              "type": "ORDINAL",
+              "samples": []
+            }
+          ]
         }
       ],
       "types": [
         {
+          "name": "CATEGORY",
           "values": [
             {
+              "id": null,
               "name": {
-                "value": "snow golem"
+                "value": "CATEGORY_NAME_1",
+                "synonyms": []
               }
             },
             {
+              "id": null,
               "name": {
-                "value": "pillar quartz block"
+                "value": "CATEGORY_NAME_2",
+                "synonyms": []
               }
             },
             {
+              "id": null,
               "name": {
-                "value": "firework rocket"
+                "value": "CATEGORY_NAME_3",
+                "synonyms": []
               }
             },
             {
+              "id": null,
               "name": {
-                "value": "rabbit stew"
-              }
-            },
-            {
-              "name": {
-                "value": "cauldron"
-              }
-            },
-            {
-              "name": {
-                "value": "stone shovel"
-              }
-            },
-            {
-              "name": {
-                "value": "red carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "book and quill"
-              }
-            },
-            {
-              "name": {
-                "value": "item frame"
-              }
-            },
-            {
-              "name": {
-                "value": "map"
-              }
-            },
-            {
-              "name": {
-                "value": "sticky piston"
-              }
-            },
-            {
-              "name": {
-                "value": "bread"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden pick ax"
-              }
-            },
-            {
-              "name": {
-                "value": "shears"
-              }
-            },
-            {
-              "name": {
-                "value": "raw beef"
-              }
-            },
-            {
-              "name": {
-                "value": "smooth red sandstone"
-              }
-            },
-            {
-              "name": {
-                "value": "prismarine crystals"
-              }
-            },
-            {
-              "name": {
-                "value": "oak wood slab"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden sword"
-              }
-            },
-            {
-              "name": {
-                "value": "stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle fence"
-              }
-            },
-            {
-              "name": {
-                "value": "activator rail"
-              }
-            },
-            {
-              "name": {
-                "value": "farmland"
-              }
-            },
-            {
-              "name": {
-                "value": "gold ore"
-              }
-            },
-            {
-              "name": {
-                "value": "andesite"
-              }
-            },
-            {
-              "name": {
-                "value": "rose red"
-              }
-            },
-            {
-              "name": {
-                "value": "iron axe"
-              }
-            },
-            {
-              "name": {
-                "value": "light blue dye"
-              }
-            },
-            {
-              "name": {
-                "value": "gray dye"
-              }
-            },
-            {
-              "name": {
-                "value": "blue stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "iron horse armor"
-              }
-            },
-            {
-              "name": {
-                "value": "red stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "brick stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "golden leggings"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak fence gate"
-              }
-            },
-            {
-              "name": {
-                "value": "wither mob head"
-              }
-            },
-            {
-              "name": {
-                "value": "spider eye"
-              }
-            },
-            {
-              "name": {
-                "value": "magenta stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "brown stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "pumpkin pie"
-              }
-            },
-            {
-              "name": {
-                "value": "snowball"
-              }
-            },
-            {
-              "name": {
-                "value": "juke box"
-              }
-            },
-            {
-              "name": {
-                "value": "sand"
-              }
-            },
-            {
-              "name": {
-                "value": "dead bush"
-              }
-            },
-            {
-              "name": {
-                "value": "brick slab"
-              }
-            },
-            {
-              "name": {
-                "value": "lily pad"
-              }
-            },
-            {
-              "name": {
-                "value": "leather pants"
-              }
-            },
-            {
-              "name": {
-                "value": "mossy cobblestone wall"
-              }
-            },
-            {
-              "name": {
-                "value": "eleven disc"
-              }
-            },
-            {
-              "name": {
-                "value": "purple stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "magenta stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "mall disc"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle wood"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond ax"
-              }
-            },
-            {
-              "name": {
-                "value": "empty map"
-              }
-            },
-            {
-              "name": {
-                "value": "stone pressure plate"
-              }
-            },
-            {
-              "name": {
-                "value": "trapdoor"
-              }
-            },
-            {
-              "name": {
-                "value": "gold boots"
-              }
-            },
-            {
-              "name": {
-                "value": "stall disc"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone wire"
-              }
-            },
-            {
-              "name": {
-                "value": "piston"
-              }
-            },
-            {
-              "name": {
-                "value": "white stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "mine cart with furnace"
-              }
-            },
-            {
-              "name": {
-                "value": "sugar"
-              }
-            },
-            {
-              "name": {
-                "value": "chain mail chest plate"
-              }
-            },
-            {
-              "name": {
-                "value": "feather"
-              }
-            },
-            {
-              "name": {
-                "value": "light blue stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "oak fence"
-              }
-            },
-            {
-              "name": {
-                "value": "stone pick ax"
-              }
-            },
-            {
-              "name": {
-                "value": "pink carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "monster spawner"
-              }
-            },
-            {
-              "name": {
-                "value": "golden carrot"
-              }
-            },
-            {
-              "name": {
-                "value": "stick"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond block"
-              }
-            },
-            {
-              "name": {
-                "value": "green stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "cooked chicken"
-              }
-            },
-            {
-              "name": {
-                "value": "thirteen disc"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden trapdoor"
-              }
-            },
-            {
-              "name": {
-                "value": "oak fence gate"
-              }
-            },
-            {
-              "name": {
-                "value": "crafting bench"
-              }
-            },
-            {
-              "name": {
-                "value": "nether quartz ore"
-              }
-            },
-            {
-              "name": {
-                "value": "golden sword"
-              }
-            },
-            {
-              "name": {
-                "value": "gray stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "light blue stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond boots"
-              }
-            },
-            {
-              "name": {
-                "value": "stone hoe"
-              }
-            },
-            {
-              "name": {
-                "value": "coal ore"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak leaves"
-              }
-            },
-            {
-              "name": {
-                "value": "t.n.t."
-              }
-            },
-            {
-              "name": {
-                "value": "brick"
-              }
-            },
-            {
-              "name": {
-                "value": "potato"
-              }
-            },
-            {
-              "name": {
-                "value": "orange carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "ink sack"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak wood"
-              }
-            },
-            {
-              "name": {
-                "value": "diorite"
-              }
-            },
-            {
-              "name": {
-                "value": "workbench"
-              }
-            },
-            {
-              "name": {
-                "value": "gray stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle fence gate"
-              }
-            },
-            {
-              "name": {
-                "value": "magenta wool"
-              }
-            },
-            {
-              "name": {
-                "value": "dirt"
-              }
-            },
-            {
-              "name": {
-                "value": "armor stand"
-              }
-            },
-            {
-              "name": {
-                "value": "cooked fish"
-              }
-            },
-            {
-              "name": {
-                "value": "lever"
-              }
-            },
-            {
-              "name": {
-                "value": "leash"
-              }
-            },
-            {
-              "name": {
-                "value": "cooked rabbit"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle wood stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "mine cart with hopper"
-              }
-            },
-            {
-              "name": {
-                "value": "fermented spider eye"
-              }
-            },
-            {
-              "name": {
-                "value": "raw fish"
-              }
-            },
-            {
-              "name": {
-                "value": "brown stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "sign"
-              }
-            },
-            {
-              "name": {
-                "value": "t.n.t"
-              }
-            },
-            {
-              "name": {
-                "value": "hopper"
-              }
-            },
-            {
-              "name": {
-                "value": "blaze rod"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone comparator"
-              }
-            },
-            {
-              "name": {
-                "value": "bone"
-              }
-            },
-            {
-              "name": {
-                "value": "golden horse armor"
-              }
-            },
-            {
-              "name": {
-                "value": "golden pants"
-              }
-            },
-            {
-              "name": {
-                "value": "rail"
-              }
-            },
-            {
-              "name": {
-                "value": "wheat seeds"
-              }
-            },
-            {
-              "name": {
-                "value": "birch fence"
-              }
-            },
-            {
-              "name": {
-                "value": "purple stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "golden chestplate"
-              }
-            },
-            {
-              "name": {
-                "value": "leather boots"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond shovel"
-              }
-            },
-            {
-              "name": {
-                "value": "leather leggings"
-              }
-            },
-            {
-              "name": {
-                "value": "red sand"
-              }
-            },
-            {
-              "name": {
-                "value": "vines"
-              }
-            },
-            {
-              "name": {
-                "value": "glass bottle"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone ore"
-              }
-            },
-            {
-              "name": {
-                "value": "emerald block"
-              }
-            },
-            {
-              "name": {
-                "value": "granite"
-              }
-            },
-            {
-              "name": {
-                "value": "brown wool"
-              }
-            },
-            {
-              "name": {
-                "value": "golden apple"
-              }
-            },
-            {
-              "name": {
-                "value": "birch leaves"
-              }
-            },
-            {
-              "name": {
-                "value": "white wool"
-              }
-            },
-            {
-              "name": {
-                "value": "purple carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "hardened clay"
-              }
-            },
-            {
-              "name": {
-                "value": "zombie mob head"
-              }
-            },
-            {
-              "name": {
-                "value": "iron trapdoor"
-              }
-            },
-            {
-              "name": {
-                "value": "flower pot"
-              }
-            },
-            {
-              "name": {
-                "value": "iron ore"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle wood slab"
-              }
-            },
-            {
-              "name": {
-                "value": "birch wood slab"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle door"
-              }
-            },
-            {
-              "name": {
-                "value": "golden ax"
-              }
-            },
-            {
-              "name": {
-                "value": "packed ice"
-              }
-            },
-            {
-              "name": {
-                "value": "bricks"
-              }
-            },
-            {
-              "name": {
-                "value": "light blue carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "dead shrub"
-              }
-            },
-            {
-              "name": {
-                "value": "dropper"
-              }
-            },
-            {
-              "name": {
-                "value": "chest"
-              }
-            },
-            {
-              "name": {
-                "value": "raw chicken"
-              }
-            },
-            {
-              "name": {
-                "value": "raw salmon"
-              }
-            },
-            {
-              "name": {
-                "value": "tripwire hook"
-              }
-            },
-            {
-              "name": {
-                "value": "oak wood stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "mine cart with command block"
-              }
-            },
-            {
-              "name": {
-                "value": "eye of ender"
-              }
-            },
-            {
-              "name": {
-                "value": "block of coal"
-              }
-            },
-            {
-              "name": {
-                "value": "nether star"
-              }
-            },
-            {
-              "name": {
-                "value": "gravel"
-              }
-            },
-            {
-              "name": {
-                "value": "blue wool"
-              }
-            },
-            {
-              "name": {
-                "value": "nether quartz"
-              }
-            },
-            {
-              "name": {
-                "value": "rotten flesh"
-              }
-            },
-            {
-              "name": {
-                "value": "magenta carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "white stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "birch fence gate"
-              }
-            },
-            {
-              "name": {
-                "value": "carrots"
-              }
-            },
-            {
-              "name": {
-                "value": "purple dye"
-              }
-            },
-            {
-              "name": {
-                "value": "lapis lazuli block"
-              }
-            },
-            {
-              "name": {
-                "value": "obsidian"
-              }
-            },
-            {
-              "name": {
-                "value": "mellohi disc"
-              }
-            },
-            {
-              "name": {
-                "value": "gray wool"
-              }
-            },
-            {
-              "name": {
-                "value": "trapped chest"
-              }
-            },
-            {
-              "name": {
-                "value": "light gray stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "iron pick ax"
-              }
-            },
-            {
-              "name": {
-                "value": "red mushroom"
-              }
-            },
-            {
-              "name": {
-                "value": "puffer fish"
-              }
-            },
-            {
-              "name": {
-                "value": "emerald"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden shovel"
-              }
-            },
-            {
-              "name": {
-                "value": "golden helmet"
-              }
-            },
-            {
-              "name": {
-                "value": "melon"
-              }
-            },
-            {
-              "name": {
-                "value": "clay block"
-              }
-            },
-            {
-              "name": {
-                "value": "anvil"
-              }
-            },
-            {
-              "name": {
-                "value": "daylight sensor"
-              }
-            },
-            {
-              "name": {
-                "value": "lead"
-              }
-            },
-            {
-              "name": {
-                "value": "sandstone"
-              }
-            },
-            {
-              "name": {
-                "value": "leather tunic"
-              }
-            },
-            {
-              "name": {
-                "value": "black stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "lime stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "mine cart with t.n.t"
-              }
-            },
-            {
-              "name": {
-                "value": "clock"
-              }
-            },
-            {
-              "name": {
-                "value": "black carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "cocoa"
-              }
-            },
-            {
-              "name": {
-                "value": "gold ingot"
-              }
-            },
-            {
-              "name": {
-                "value": "stone brick slab"
-              }
-            },
-            {
-              "name": {
-                "value": "clown fish"
-              }
-            },
-            {
-              "name": {
-                "value": "pumpkin seeds"
-              }
-            },
-            {
-              "name": {
-                "value": "mossy stone brick"
-              }
-            },
-            {
-              "name": {
-                "value": "cobweb"
-              }
-            },
-            {
-              "name": {
-                "value": "milk bucket"
-              }
-            },
-            {
-              "name": {
-                "value": "iron helmet"
-              }
-            },
-            {
-              "name": {
-                "value": "yellow stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "light gray stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond"
-              }
-            },
-            {
-              "name": {
-                "value": "stone sword"
-              }
-            },
-            {
-              "name": {
-                "value": "cobblestone stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "bed"
-              }
-            },
-            {
-              "name": {
-                "value": "birch wood"
-              }
-            },
-            {
-              "name": {
-                "value": "quartz slab"
-              }
-            },
-            {
-              "name": {
-                "value": "sponge"
-              }
-            },
-            {
-              "name": {
-                "value": "skeleton mob head"
-              }
-            },
-            {
-              "name": {
-                "value": "bucket"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond sword"
-              }
-            },
-            {
-              "name": {
-                "value": "golden shovel"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce wood stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "iron bars"
-              }
-            },
-            {
-              "name": {
-                "value": "raw rabbit"
-              }
-            },
-            {
-              "name": {
-                "value": "yellow carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "carrot on a stick"
-              }
-            },
-            {
-              "name": {
-                "value": "raw pork chop"
-              }
-            },
-            {
-              "name": {
-                "value": "furnace"
-              }
-            },
-            {
-              "name": {
-                "value": "nether brick fence"
-              }
-            },
-            {
-              "name": {
-                "value": "fence"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond horse armor"
-              }
-            },
-            {
-              "name": {
-                "value": "red sandstone slab"
-              }
-            },
-            {
-              "name": {
-                "value": "birch wood plank"
-              }
-            },
-            {
-              "name": {
-                "value": "bedrock"
-              }
-            },
-            {
-              "name": {
-                "value": "saddle"
-              }
-            },
-            {
-              "name": {
-                "value": "light gray dye"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle leaves"
-              }
-            },
-            {
-              "name": {
-                "value": "blocks disc"
-              }
-            },
-            {
-              "name": {
-                "value": "pumpkin"
-              }
-            },
-            {
-              "name": {
-                "value": "baked potato"
-              }
-            },
-            {
-              "name": {
-                "value": "leather"
-              }
-            },
-            {
-              "name": {
-                "value": "light gray carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "iron boots"
-              }
-            },
-            {
-              "name": {
-                "value": "end stone"
-              }
-            },
-            {
-              "name": {
-                "value": "chainmail leggings"
-              }
-            },
-            {
-              "name": {
-                "value": "rabbit's foot"
-              }
-            },
-            {
-              "name": {
-                "value": "glass"
-              }
-            },
-            {
-              "name": {
-                "value": "stone"
-              }
-            },
-            {
-              "name": {
-                "value": "prismarine"
-              }
-            },
-            {
-              "name": {
-                "value": "compass"
-              }
-            },
-            {
-              "name": {
-                "value": "green stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "gold leggings"
-              }
-            },
-            {
-              "name": {
-                "value": "command block"
-              }
-            },
-            {
-              "name": {
-                "value": "dispenser"
-              }
-            },
-            {
-              "name": {
-                "value": "poisonous potato"
-              }
-            },
-            {
-              "name": {
-                "value": "apple"
-              }
-            },
-            {
-              "name": {
-                "value": "red flower"
-              }
-            },
-            {
-              "name": {
-                "value": "magenta dye"
-              }
-            },
-            {
-              "name": {
-                "value": "brown carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "prismarine shard"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone block"
-              }
-            },
-            {
-              "name": {
-                "value": "yellow stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "dandelion yellow"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia wood stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "sandstone slab"
-              }
-            },
-            {
-              "name": {
-                "value": "gray carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "polished granite"
-              }
-            },
-            {
-              "name": {
-                "value": "mine cart"
-              }
-            },
-            {
-              "name": {
-                "value": "brown stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "cyan stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "book"
-              }
-            },
-            {
-              "name": {
-                "value": "mine cart with a chest"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia sapling"
-              }
-            },
-            {
-              "name": {
-                "value": "paper"
-              }
-            },
-            {
-              "name": {
-                "value": "gold chest plate"
-              }
-            },
-            {
-              "name": {
-                "value": "cyan stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "mushroom stew"
-              }
-            },
-            {
-              "name": {
-                "value": "nether brick"
-              }
-            },
-            {
-              "name": {
-                "value": "magma cream"
-              }
-            },
-            {
-              "name": {
-                "value": "snow"
-              }
-            },
-            {
-              "name": {
-                "value": "orange dye"
-              }
-            },
-            {
-              "name": {
-                "value": "potion"
-              }
-            },
-            {
-              "name": {
-                "value": "lime stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "white stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "boat"
-              }
-            },
-            {
-              "name": {
-                "value": "dark prismarine"
-              }
-            },
-            {
-              "name": {
-                "value": "oak door"
-              }
-            },
-            {
-              "name": {
-                "value": "cocoa beans"
-              }
-            },
-            {
-              "name": {
-                "value": "oak wood"
-              }
-            },
-            {
-              "name": {
-                "value": "red wool"
-              }
-            },
-            {
-              "name": {
-                "value": "cooked mutton"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak fence"
-              }
-            },
-            {
-              "name": {
-                "value": "iron door"
-              }
-            },
-            {
-              "name": {
-                "value": "painting"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce leaves"
-              }
-            },
-            {
-              "name": {
-                "value": "pink stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia wood slab"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak wood slab"
-              }
-            },
-            {
-              "name": {
-                "value": "chiseled sandstone"
-              }
-            },
-            {
-              "name": {
-                "value": "oak wood plank"
-              }
-            },
-            {
-              "name": {
-                "value": "cooked salmon"
-              }
-            },
-            {
-              "name": {
-                "value": "iron shovel"
-              }
-            },
-            {
-              "name": {
-                "value": "enchanting table"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone repeater"
-              }
-            },
-            {
-              "name": {
-                "value": "far disc"
-              }
-            },
-            {
-              "name": {
-                "value": "green carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "iron ingot"
-              }
-            },
-            {
-              "name": {
-                "value": "orange wool"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle sapling"
-              }
-            },
-            {
-              "name": {
-                "value": "stone slab"
-              }
-            },
-            {
-              "name": {
-                "value": "light blue stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "cyan dye"
-              }
-            },
-            {
-              "name": {
-                "value": "steak "
-              }
-            },
-            {
-              "name": {
-                "value": "orange stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "blue stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce fence"
-              }
-            },
-            {
-              "name": {
-                "value": "coal"
-              }
-            },
-            {
-              "name": {
-                "value": "potatoes"
-              }
-            },
-            {
-              "name": {
-                "value": "light gray stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "fence gate"
-              }
-            },
-            {
-              "name": {
-                "value": "egg"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce wood plank"
-              }
-            },
-            {
-              "name": {
-                "value": "orange stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia wood"
-              }
-            },
-            {
-              "name": {
-                "value": "light gray wool"
-              }
-            },
-            {
-              "name": {
-                "value": "hay bale"
-              }
-            },
-            {
-              "name": {
-                "value": "clay"
-              }
-            },
-            {
-              "name": {
-                "value": "bowl"
-              }
-            },
-            {
-              "name": {
-                "value": "leather helmet"
-              }
-            },
-            {
-              "name": {
-                "value": "pink stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond chest plate"
-              }
-            },
-            {
-              "name": {
-                "value": "gray stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "yellow stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "snowman"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond ore"
-              }
-            },
-            {
-              "name": {
-                "value": "banner"
-              }
-            },
-            {
-              "name": {
-                "value": "stone ax"
-              }
-            },
-            {
-              "name": {
-                "value": "firework star"
-              }
-            },
-            {
-              "name": {
-                "value": "nether wart"
-              }
-            },
-            {
-              "name": {
-                "value": "red stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "quartz block"
-              }
-            },
-            {
-              "name": {
-                "value": "poppy"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia fence"
-              }
-            },
-            {
-              "name": {
-                "value": "cactus"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce door"
-              }
-            },
-            {
-              "name": {
-                "value": "cat disc"
-              }
-            },
-            {
-              "name": {
-                "value": "flint and steel"
-              }
-            },
-            {
-              "name": {
-                "value": "gold pants"
-              }
-            },
-            {
-              "name": {
-                "value": "slime ball"
-              }
-            },
-            {
-              "name": {
-                "value": "cooked porkchop"
-              }
-            },
-            {
-              "name": {
-                "value": "polished andesite"
-              }
-            },
-            {
-              "name": {
-                "value": "prismarine bricks"
-              }
-            },
-            {
-              "name": {
-                "value": "wither"
-              }
-            },
-            {
-              "name": {
-                "value": "lime dye"
-              }
-            },
-            {
-              "name": {
-                "value": "blue carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "door"
-              }
-            },
-            {
-              "name": {
-                "value": "tripwire"
-              }
-            },
-            {
-              "name": {
-                "value": "enchantment table"
-              }
-            },
-            {
-              "name": {
-                "value": "cyan carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "polished diorite"
-              }
-            },
-            {
-              "name": {
-                "value": "golden boots"
-              }
-            },
-            {
-              "name": {
-                "value": "iron block"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia leaves"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak sapling"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond hoe"
-              }
-            },
-            {
-              "name": {
-                "value": "dandelion"
-              }
-            },
-            {
-              "name": {
-                "value": "lapis lazuli"
-              }
-            },
-            {
-              "name": {
-                "value": "sugar cane"
-              }
-            },
-            {
-              "name": {
-                "value": "birch door"
-              }
-            },
-            {
-              "name": {
-                "value": "cactus green"
-              }
-            },
-            {
-              "name": {
-                "value": "gold block"
-              }
-            },
-            {
-              "name": {
-                "value": "smooth sandstone"
-              }
-            },
-            {
-              "name": {
-                "value": "magenta stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "note block"
-              }
-            },
-            {
-              "name": {
-                "value": "snow block"
-              }
-            },
-            {
-              "name": {
-                "value": "mob head"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond leggings"
-              }
-            },
-            {
-              "name": {
-                "value": "red sandstone"
-              }
-            },
-            {
-              "name": {
-                "value": "orange stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "slime block"
-              }
-            },
-            {
-              "name": {
-                "value": "bookshelf"
-              }
-            },
-            {
-              "name": {
-                "value": "cake"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden button"
-              }
-            },
-            {
-              "name": {
-                "value": "chiseled quartz block"
-              }
-            },
-            {
-              "name": {
-                "value": "stone button"
-              }
-            },
-            {
-              "name": {
-                "value": "glow stone dust"
-              }
-            },
-            {
-              "name": {
-                "value": "lime stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "cobblestone wall"
-              }
-            },
-            {
-              "name": {
-                "value": "name tag"
-              }
-            },
-            {
-              "name": {
-                "value": "gunpowder"
-              }
-            },
-            {
-              "name": {
-                "value": "blaze powder"
-              }
-            },
-            {
-              "name": {
-                "value": "brewing stand"
-              }
-            },
-            {
-              "name": {
-                "value": "torch"
-              }
-            },
-            {
-              "name": {
-                "value": "yellow wool"
-              }
-            },
-            {
-              "name": {
-                "value": "watermelon"
-              }
-            },
-            {
-              "name": {
-                "value": "wait disc"
-              }
-            },
-            {
-              "name": {
-                "value": "glistering melon"
-              }
-            },
-            {
-              "name": {
-                "value": "netherrack"
-              }
-            },
-            {
-              "name": {
-                "value": "leather chest plate"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden slab"
-              }
-            },
-            {
-              "name": {
-                "value": "nether brick stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "ice"
-              }
-            },
-            {
-              "name": {
-                "value": "large fern"
-              }
-            },
-            {
-              "name": {
-                "value": "nether brick slab"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce wood slab"
-              }
-            },
-            {
-              "name": {
-                "value": "iron hoe"
-              }
-            },
-            {
-              "name": {
-                "value": "fern"
-              }
-            },
-            {
-              "name": {
-                "value": "sea lantern"
-              }
-            },
-            {
-              "name": {
-                "value": "cookie"
-              }
-            },
-            {
-              "name": {
-                "value": "melon seeds"
-              }
-            },
-            {
-              "name": {
-                "value": "gold nugget"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone ore block"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond helmet"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce fence gate"
-              }
-            },
-            {
-              "name": {
-                "value": "golden hoe"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia wood plank"
-              }
-            },
-            {
-              "name": {
-                "value": "diamond pick ax"
-              }
-            },
-            {
-              "name": {
-                "value": "lapis lazuli ore"
-              }
-            },
-            {
-              "name": {
-                "value": "raw mutton"
-              }
-            },
-            {
-              "name": {
-                "value": "quartz stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "brick block"
-              }
-            },
-            {
-              "name": {
-                "value": "cobblestone slab"
-              }
-            },
-            {
-              "name": {
-                "value": "emerald ore"
-              }
-            },
-            {
-              "name": {
-                "value": "yellow flower"
-              }
-            },
-            {
-              "name": {
-                "value": "jack o'lantern"
-              }
-            },
-            {
-              "name": {
-                "value": "red stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "iron leggings"
-              }
-            },
-            {
-              "name": {
-                "value": "pink stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "black dye"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden hoe"
-              }
-            },
-            {
-              "name": {
-                "value": "purple stained glass"
-              }
-            },
-            {
-              "name": {
-                "value": "mine cart with chest"
-              }
-            },
-            {
-              "name": {
-                "value": "detector rail"
-              }
-            },
-            {
-              "name": {
-                "value": "cyan wool"
-              }
-            },
-            {
-              "name": {
-                "value": "iron chestplate"
-              }
-            },
-            {
-              "name": {
-                "value": "cobblestone"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak wood stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "creeper mob head"
-              }
-            },
-            {
-              "name": {
-                "value": "carrot"
-              }
-            },
-            {
-              "name": {
-                "value": "rabbit hide"
-              }
-            },
-            {
-              "name": {
-                "value": "grass"
-              }
-            },
-            {
-              "name": {
-                "value": "strad disc"
-              }
-            },
-            {
-              "name": {
-                "value": "birch sapling"
-              }
-            },
-            {
-              "name": {
-                "value": "mossy stone"
-              }
-            },
-            {
-              "name": {
-                "value": "pink dye"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone torch"
-              }
-            },
-            {
-              "name": {
-                "value": "green stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "tall grass"
-              }
-            },
-            {
-              "name": {
-                "value": "black wool"
-              }
-            },
-            {
-              "name": {
-                "value": "wheat crops"
-              }
-            },
-            {
-              "name": {
-                "value": "ender pearl"
-              }
-            },
-            {
-              "name": {
-                "value": "moss stone"
-              }
-            },
-            {
-              "name": {
-                "value": "fishing rod"
-              }
-            },
-            {
-              "name": {
-                "value": "bone meal"
-              }
-            },
-            {
-              "name": {
-                "value": "quartz"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak wood plank"
-              }
-            },
-            {
-              "name": {
-                "value": "powered rail"
-              }
-            },
-            {
-              "name": {
-                "value": "beacon"
-              }
-            },
-            {
-              "name": {
-                "value": "blue stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "dark oak door"
-              }
-            },
-            {
-              "name": {
-                "value": "iron golem"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce wood"
-              }
-            },
-            {
-              "name": {
-                "value": "pink wool"
-              }
-            },
-            {
-              "name": {
-                "value": "fire charge"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia door"
-              }
-            },
-            {
-              "name": {
-                "value": "iron pants"
-              }
-            },
-            {
-              "name": {
-                "value": "chirp disc"
-              }
-            },
-            {
-              "name": {
-                "value": "oak leaves"
-              }
-            },
-            {
-              "name": {
-                "value": "arrow"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden ax"
-              }
-            },
-            {
-              "name": {
-                "value": "glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "gold helmet"
-              }
-            },
-            {
-              "name": {
-                "value": "ender chest"
-              }
-            },
-            {
-              "name": {
-                "value": "light blue wool"
-              }
-            },
-            {
-              "name": {
-                "value": "string"
-              }
-            },
-            {
-              "name": {
-                "value": "red sandstone stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "purple wool"
-              }
-            },
-            {
-              "name": {
-                "value": "cyan stained glass pane"
-              }
-            },
-            {
-              "name": {
-                "value": "black stained clay"
-              }
-            },
-            {
-              "name": {
-                "value": "enchanted book"
-              }
-            },
-            {
-              "name": {
-                "value": "button"
-              }
-            },
-            {
-              "name": {
-                "value": "lime wool"
-              }
-            },
-            {
-              "name": {
-                "value": "coarse dirt"
-              }
-            },
-            {
-              "name": {
-                "value": "ghast tear"
-              }
-            },
-            {
-              "name": {
-                "value": "mine cart with a furnace"
-              }
-            },
-            {
-              "name": {
-                "value": "wheat"
-              }
-            },
-            {
-              "name": {
-                "value": "soul sand"
-              }
-            },
-            {
-              "name": {
-                "value": "brown mushroom"
-              }
-            },
-            {
-              "name": {
-                "value": "chainmail helmet"
-              }
-            },
-            {
-              "name": {
-                "value": "written book"
-              }
-            },
-            {
-              "name": {
-                "value": "spruce sapling"
-              }
-            },
-            {
-              "name": {
-                "value": "oak sapling"
-              }
-            },
-            {
-              "name": {
-                "value": "inverted daylight sensor"
-              }
-            },
-            {
-              "name": {
-                "value": "sandstone stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "red stone lamp"
-              }
-            },
-            {
-              "name": {
-                "value": "crafting table"
-              }
-            },
-            {
-              "name": {
-                "value": "glow stone"
-              }
-            },
-            {
-              "name": {
-                "value": "wooden pressure plate"
-              }
-            },
-            {
-              "name": {
-                "value": "charcoal"
-              }
-            },
-            {
-              "name": {
-                "value": "chainmail boots"
-              }
-            },
-            {
-              "name": {
-                "value": "ladder"
-              }
-            },
-            {
-              "name": {
-                "value": "mossy cobblestone"
-              }
-            },
-            {
-              "name": {
-                "value": "golden pick ax"
-              }
-            },
-            {
-              "name": {
-                "value": "seeds"
-              }
-            },
-            {
-              "name": {
-                "value": "acacia fence gate"
-              }
-            },
-            {
-              "name": {
-                "value": "birch wood stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "ward disc"
-              }
-            },
-            {
-              "name": {
-                "value": "music disc"
-              }
-            },
-            {
-              "name": {
-                "value": "enchanted golden apple"
-              }
-            },
-            {
-              "name": {
-                "value": "white carpet"
-              }
-            },
-            {
-              "name": {
-                "value": "iron sword"
-              }
-            },
-            {
-              "name": {
-                "value": "diamonds pants"
-              }
-            },
-            {
-              "name": {
-                "value": "chiseled red sandstone"
-              }
-            },
-            {
-              "name": {
-                "value": "stone brick stairs"
-              }
-            },
-            {
-              "name": {
-                "value": "pressure plate"
-              }
-            },
-            {
-              "name": {
-                "value": "jungle wood plank"
-              }
-            },
-            {
-              "name": {
-                "value": "green wool"
-              }
-            },
-            {
-              "name": {
-                "value": "sugar canes"
-              }
-            },
-            {
-              "name": {
-                "value": "bow"
-              }
-            },
-            {
-              "name": {
-                "value": "flint"
-              }
-            },
-            {
-              "name": {
-                "value": "black stained glass pane"
+                "value": "Favorite",
+                "synonyms": []
               }
             }
-          ],
-          "name": "LIST_OF_ITEMS"
+          ]
+        },
+        {
+          "name": "ORDINAL",
+          "values": [
+            {
+              "id": null,
+              "name": {
+                "value": "1st",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "2nd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "3rd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "4th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "5th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "6th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "7th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "8th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "9th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "10th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "11th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "12th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "13th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "14th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "15th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "16th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "17th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "18th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "19th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "20th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "21st",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "22nd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "23rd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "24th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "25th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "26th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "27th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "28th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "29th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "30th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "31st",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "32nd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "33rd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "34th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "35th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "36th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "37th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "38th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "39th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "40th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "41st",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "42nd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "43rd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "44th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "45th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "46th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "47th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "48th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "49th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "50th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "51st",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "52nd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "53rd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "54th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "55th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "56th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "57th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "58th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "59th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "60th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "61st",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "62nd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "63rd",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "64th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "65th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "66th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "67th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "68th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "69th",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "70th",
+                "synonyms": []
+              }
+            }
+          ]
         }
       ]
     }

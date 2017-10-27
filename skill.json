@@ -3,14 +3,14 @@
     "publishingInformation": {
       "locales": {
         "en-US": {
-          "summary": "Ask an expert for a recommendation on what to do in your city.",
+          "summary": "Have Alexa read feeds to you from an RSS/Atom feed",
           "examplePhrases": [
-            "Alexa open city guide",
-            "Alexa tell city guide i'm hungry",
-            "Alexa ask city guide to give me an activity"
+            "Alexa open feed reader",
+            "Alexa tell feed reader to play favorites",
+            "Alexa ask feed reader to get categories"
           ],
-          "name": "City Guide",
-          "description": "Ask an expert for a recommendation on what to do in your city. You can even ask for tips within a specific distance."
+          "name": "Feed Reader",
+          "description": "Have Alexa read feeds to you from an RSS/Atom feed. Create a list of favorites and manage your feeds by category."
         }
       },
       "isAvailableWorldwide": true,
