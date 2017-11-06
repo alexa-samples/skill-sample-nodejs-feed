@@ -1,4 +1,38 @@
-# RSS/Atom Feed Sample Project
+# Build An Alexa Feed Reader Skill
+<img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/quiz-game/header._TTH_.png" />
+
+[![Voice User Interface](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/1-off._TTH_.png)](./instructions/1-voice-user-interface.md)[![Lambda Function](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/2-off._TTH_.png)](./instructions/2-lambda-function.md)[![Connect VUI to Code](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/3-off._TTH_.png)](./instructions/3-connect-vui-to-code.md)[![Testing](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/4-off._TTH_.png)](./instructions/4-testing.md)[![Customization](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/5-off._TTH_.png)](./instructions/5-customization.md)[![Publication](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/6-off._TTH_.png)](./instructions/6-publication.md)
+
+# How to Build a Feed Reader Skill for Alexa
+d
+## What You Will Learn
+*  [AWS Lambda](http://aws.amazon.com/lambda)
+*  [Alexa Skills Kit (ASK)](https://developer.amazon.com/alexa-skills-kit)
+*  Voice User Interface (VUI) Design
+*  Skill Certification
+*  State Management
+*  [Speechcons](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speechcon-reference)
+
+## What You Will Need
+*  [Amazon Developer Portal Account](http://developer.amazon.com)
+*  [Amazon Web Services Account](http://aws.amazon.com/)
+*  The sample code on [GitHub](https://github.com/alexa/skill-sample-nodejs-feed).
+*  Simple graphical editing tool
+
+## What Your Skill Will Do
+This is a skill that will read you your favorite RSS feeds with Alexa. You can build favorites, and browse different feeds by categories.
+
+If you’re in the US, we've also included the new [speechcons](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speechcon-reference) feature for Alexa skill development. Speechcons are special words and phrases that Alexa pronounces more expressively. We use them in this quiz game to let the user know whether they gave a correct or incorrect answer during the quiz.
+
+
+ <a href="./instructions/1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png" /></a>
+
+<img height="1" width="1" src="https://www.facebook.com/tr?id=1847448698846169&ev=PageView&noscript=1"/>
+
+
+
+
+<!-- # RSS/Atom Feed Sample Project
 
 This sample skill provides an easy way to create Alexa skills that reads headlines from an RSS/Atom feed.
 
@@ -24,9 +58,9 @@ Set these up with these step-by-step instructions:
   1. Create an AWS Lambda function named MyFeedSkillLambdaFunction.
     1. Under "Select blueprint", choose skip.
     1. Under "Configure triggers", select "Alexa Skills Kit" as the trigger.
-  
+
      ![alt text](https://cloud.githubusercontent.com/assets/7671574/17451088/ff126618-5b18-11e6-8f46-fbfb9461ab80.png "AWS Lambda Create Trigger Screenshot")
-     
+
     1. Under "Configure function":
       1. Enter "MyFeedSkillLambdaFunction" under "Name".  
       1. Choose the role you created above under "Existing role".
@@ -77,7 +111,7 @@ Next, you'll setup your local environment to run the deployment script.
 
 ## Configure the Project to Use Your Feed
 
-1. Open ```/src/configuration.js``` file.
+1. Open ```/lambda/custom/configuration.js``` file.
 
 2. Update the following information to configure the skill:
 
@@ -94,7 +128,7 @@ Next, you'll setup your local environment to run the deployment script.
 3. A sample configuration :
 
     ```javascript
-    var config = {
+    let config = {
         appId : 'amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
         welcome_message : 'Welcome to Feed Skill',
         number_feeds_per_prompt : 3,
@@ -111,18 +145,18 @@ Next, you'll setup your local environment to run the deployment script.
 
 ## Deploy Your Skill
 
-1. Go to the ```skill-sample-nodejs-feed/bin/``` directory and run ```deploy.js``` using Node.
+1. Go to the ```skill-sample-nodejs-feed/lambda/bin/``` directory and run ```deploy.js``` using Node.
 
     ```
     npm install aws-sdk
     node deploy.js
     ```
-    
-2. Go to the the ```skill-sample-nodejs-feed/src/``` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself.   Lambda needs to be able to find the ```index.js``` file at the root of the zip file. 
+
+2. Go to the the ```skill-sample-nodejs-feed/lambda/custom/``` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself.   Lambda needs to be able to find the ```index.js``` file at the root of the zip file.
 
 3. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1) and upload the file to your Lambda function, selecting "Code entry type" as "Upload a .ZIP file".
 
-4. Go to the [Developer Portal](https://developer.amazon.com/edw/home.html#/skills/list) copy following content from ```skill-sample-nodejs-feed/speechAssets/``` to the Interaction Model:
+4. Go to the [Developer Portal](https://developer.amazon.com/edw/home.html#/skills/list) copy following content from ```skill-sample-nodejs-feed/models/``` to the Interaction Model:
     * ```CustomSlots-ORDINALS.txt``` to a new custom slot with Type : ORDINAL
     * ```CustomSlots-CATEGORIES.txt``` to a new custom slot with Type : CATEGORY
         * **Note:** This file is not generated.  You'll need to update it with names for each of the feeds you added in your configuration above.
@@ -133,5 +167,7 @@ Next, you'll setup your local environment to run the deployment script.
 5. Start testing the skill in the Developer Portal or on your device.
 
 6. Enjoy!
+
+-->
 
 **Note:**  By creating an Alexa skill based on the Feed skill template, you acknowledge ownership of any RSS/ATOM feed(s) used within the skill, and/or have permission to use the RSS/ATOM feed(s) from the original content owner. Failure to be able to prove ownership or permission to use any feed sources, at any time, will likely cause your skill to be rejected during the certification process, or being removed from the Alexa Skill Store without notice at a later date.

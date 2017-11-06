@@ -1,5 +1,3 @@
-"use strict";
-
 module.exports = Object.freeze({
     //  States
     states : {
@@ -21,7 +19,7 @@ module.exports = Object.freeze({
         '300' : '<break time = "300ms"/>',
         '500' : '<break time = "500ms"/>'
     },
-    
+
     // Time in minutes after which feeds fetched again.
-    updateFeedTime : 5 
+    updateFeedTime : 5
 });
