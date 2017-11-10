@@ -1,6 +1,4 @@
-'use strict';
-
-var config = {
+let config = {
     // TODO Add Application ID
     appId : '<APP-ID>',
     // TODO Add an appropriate welcome message.

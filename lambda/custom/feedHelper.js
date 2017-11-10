@@ -1,26 +1,24 @@
-'use strict';
+const FeedParser = require('feedparser');
+const fs = require('fs');
+const entities = require('html-entities').AllHtmlEntities;
+const request = require('request');
+const striptags = require('striptags');
 
-var FeedParser = require('feedparser');
-var fs = require('fs');
-var entities = require('html-entities').AllHtmlEntities;
-var request = require('request');
-var striptags = require('striptags');
+const config = require('./configuration');
+const constants = require('./constants');
+const logHelper = require('./logHelper');
+const s3Helper = require('./s3Helper');
 
-var config = require('./configuration');
-var constants = require('./constants');
-var logHelper = require('./logHelper');
-var s3Helper = require('./s3Helper');
-
-var feedParser = function () {
+const feedParser = function () {
     return {
         getFeed : function (category, fileName, callback) {
-            var url = config.feeds[category];
-            var req = request(url);
-            var feedparser = new FeedParser(null);
-            var items = [];
+            let url = config.feeds[category];
+            let req = request(url);
+            let feedparser = new FeedParser(null);
+            let items = [];
 
             req.on('response', function (res) {
-                var stream = this;
+                let stream = this;
                 if (res.statusCode === 200) {
                     stream.pipe(feedparser);
                 } else {
@@ -34,10 +32,10 @@ var feedParser = function () {
 
             // Received stream. parse through the stream and create JSON Objects for each item
             feedparser.on('readable', function() {
-                var stream = this;
-                var item;
+                let stream = this;
+                let item;
                 while (item = stream.read()) {
-                    var feedItem = {};
+                    let feedItem = {};
                     // Process feedItem item and push it to items data if it exists
                     if (item['title'] && item['date']) {
                         feedItem['title'] = item['title'];
@@ -65,10 +63,10 @@ var feedParser = function () {
                     }
                 }
             });
-            
+
             // All items parsed. Store items in S3 and return items
             feedparser.on('end', function () {
-                var count = 0;
+                let count = 0;
                 items.sort(function (a, b) {
                     return new Date(b.date) - new Date(a.date);
                 });
@@ -101,11 +99,11 @@ var feedParser = function () {
 
 function stringifyFeeds(items, callback) {
     // Structure items before storing into S3 file.
-    var feedData = '[';
-    for (var i = 0; i < items.length; i++) {
+    let feedData = '[';
+    for (let i = 0; i < items.length; i++) {
         feedData += JSON.stringify(items[i]) + ', ';
     }
-    var dataLength = feedData.length;
+    let dataLength = feedData.length;
     feedData = feedData.substring(0, dataLength-2) + ']';
     callback(feedData);
 }
