@@ -19,12 +19,21 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
 
 1. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs.
 
-       ![create_role_1](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-1.PNG "AWS Create Role Screenshot 1")
-       ![create_role_2](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-2.PNG "AWS Create Role Screenshot 2")
-       ![create_role_3](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-3.PNG "AWS Create Role Screenshot 3")
+   ![create_role_1](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-1.PNG "AWS Create Role Screenshot 1")
+   ![create_role_2](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-2.PNG "AWS Create Role Screenshot 2")
+   ![create_role_3](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-3.PNG "AWS Create Role Screenshot 3")
 
-1. Create an AWS Lambda function named MyFeedSkillLambdaFunction.
-      1. Under "Select blueprint", choose skip.
+5. **Skip the blueprint and zip your files.**
+      * Under "Select blueprint", choose skip.
+
+      * On your local machine, go to the ```skill-sample-nodejs-trivia/lambda/``` directory and run ```deploy.js``` using Node.
+
+         ```
+           npm install aws-sdk
+           node deploy.js
+           ```
+
+      * Go to the the ```skill-sample-nodejs-trivia/lambda/custom/``` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself.   Lambda needs to be able to find the ```index.js``` file at the root of the zip file.
 
 1. Under "Configure function":
   1. Enter "MyFeedSkillLambdaFunction" under "Name".  
@@ -51,13 +60,13 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-7-configure-your-function._TTH_.png" />
 
-8.  8.  **Select "Upload a .ZIP file" as your Code Entry Type** Then click "Upload" and select the zip file you created with the command above.
+8.  **Select "Upload a .ZIP file" as your Code Entry Type** Then click "Upload" and select the zip file you created with the command above.
 
 9.  **Set up your Lambda function role.**  If you haven't done this before, we have a [detailed walkthrough for setting up your first role for Lambda](https://github.com/alexa/alexa-cookbook/tree/master/aws/lambda-role.md).  If you have done this before, set your **Existing role** value to "lambda_basic_execution."
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-9-lambda-function-role._TTH_.png" />
 
-10. **For this skill, you'll need to set up your localenvironment to run the deployment script.**  
+10. **For this skill, you'll need to set up your local environment to run the deployment script.**  
 
       1. Configure AWS credentials the tool will use to upload code to your Skill.  You do this by creating a file under a ".aws" directory in your home directory.
 
@@ -128,9 +137,9 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
 
 
 
-       Click the **Next** button to move to the Review screen.
+  Click the **Next** button to move to the Review screen.
 
-          <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-10-next-button._TTH_.png" />
+  <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-10-next-button._TTH_.png" />
 
 11. **The Review screen is a summary of your choices.  Click Create Function in the bottom left corner.**  You will need to scroll down to find **Create Function.**
 
