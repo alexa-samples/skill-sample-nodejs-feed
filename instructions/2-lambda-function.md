@@ -37,11 +37,23 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
 
 7. **Configure your trigger.** Look at the column on the left called "Add triggers", and select Alexa Skills Kit from the list.  If you don't see Alexa Skills Kit in the list, jump back to step #3 on this page.
 
-  <!-- <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-6-configure-your-trigger._TTH_.png" /> TODO: THIS SCREENSHOT IS OUT OF DATE-->
+    <!-- <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-6-configure-your-trigger._TTH_.png" /> TODO: THIS SCREENSHOT IS OUT OF DATE-->
 
-  Once you have selected Alexa Skills Kit, scroll down and click the **Add** button. Then click the **Save** button in the top right. You should see a green success message at the top of your screen. Now, click the box that has the Lambda icon followed by the name of your function (FeedReader if you used our suggestion) and scroll down to the field called "Function code".
+8. Once you have selected Alexa Skills Kit, scroll down. Under Configure triggers, select Enable for Skill ID verification. A skill ID Edit box should appear. We will now retrieve your Skill ID from the developer portal.
 
-8. **For this skill, you'll need to set up your local environment to run the deployment script.**  
+9. Now lets secure this lambda function, so that it can only be invoked by your skill. Open up the [developer portal](https://developer.amazon.com/edw/home.html#/skills) and select your skill from the list. You mays till have a browser tab open if you started at the beginning of this tutorial.
+
+10. Click the Skill Information Link.
+
+    <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/3-2-configuration-tab._TTH_.png" />
+
+11. Copy the **Application ID** provided in the main window. This is also known as a skill ID, and is unique to your skill.
+
+12. Return back to your lambda function in the. You may already have this browser tab open from **Step 11**. Otherwise, open the lambda console by clicking here: [AWS Console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions) and selecting the appropriate function. Scroll down to **Configure triggers**, paste the Skill ID in the Skill ID edit box.
+
+13. Click the **Add** button. Then click the **Save** button in the top right. You should see a green success message at the top of your screen. Now, click the box that has the Lambda icon followed by the name of your function and scroll down to the field called "Function code".
+
+14. **For this skill, you'll need to set up your local environment to run the deployment script.**  
 
       1. Configure AWS credentials the tool will use to upload code to your Skill.  You do this by creating a file under a ".aws" directory in your home directory.
 
@@ -63,7 +75,7 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
           npm install
           ```
 
-9. Configure the Project to Use Your Feed
+15. Configure the Project to Use Your Feed
 
       1. Open ```/lambda/custom/configuration.js``` file.
 
@@ -97,7 +109,7 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
           };
           ```
 
-10. Deploy Your Skill
+16. Deploy Your Skill
 
       1. Go to the ```skill-sample-nodejs-feed/lambda/bin/``` directory and run ```deploy.js``` using Node.
 
@@ -110,7 +122,7 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
 
       3. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1) and upload the file to your Lambda function, selecting "Code entry type" as "Upload a .ZIP file".
 
-11. **Configure the rest of your function**
+17. **Configure the rest of your function**
     1. Scroll to the sections below "Function code"
     1. Change the "Timeout" to 30 seconds, since feeds can become an issue.
     1. Leave the defaults for everything else.
@@ -124,7 +136,7 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
 
       ![alt text](https://cloud.githubusercontent.com/assets/7671574/17307587/b80787f2-57ea-11e6-9be2-3df26e8e5947.png "AWS DynamoDB Screenshot")
 
-11. **After you create the function, the ARN value appears in the top right corner. Copy this value for use in the next section of the guide.**
+18. **After you create the function, the ARN value appears in the top right corner. Copy this value for use in the next section of the guide.**
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/quiz-game/2-12-copy-ARN._TTH_.png" />  <!--TODO: THIS IMAGE NEEDS TO BE CUSTOMIZED FOR YOUR SKILL TEMPLATE. -->
 
