@@ -9,7 +9,13 @@ exports.handler = function(event, context, callback){
     let alexa = Alexa.handler(event, context);
     alexa.appId = config.appId;
     alexa.dynamoDBTableName = config.dynamoDBTableName;
-    alexa.registerHandlers(eventHandlers, stateHandlers.startModeIntentHandlers, stateHandlers.feedModeIntentHandlers,
-        stateHandlers.noNewItemsModeIntentHandlers, stateHandlers.singleFeedModeIntentHandlers,intentHandlers, speechHandlers);
+    alexa.registerHandlers(
+        eventHandlers,
+        stateHandlers.startModeIntentHandlers,
+        stateHandlers.feedModeIntentHandlers,
+        stateHandlers.noNewItemsModeIntentHandlers,
+        stateHandlers.singleFeedModeIntentHandlers,
+        intentHandlers,
+        speechHandlers);
     alexa.execute();
 };
