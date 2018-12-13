@@ -3,59 +3,61 @@
 
 ## Setting Up A Lambda Function Using Amazon Web Services
 
-In the [first step of this guide](./1-voice-user-interface.md), we built the Voice User Interface (VUI) for our Alexa skill.  On this page, we will be creating an AWS Lambda function using [Amazon Web Services](http://aws.amazon.com).  You can [read more about what a Lambda function is](http://aws.amazon.com/lambda), but for the purposes of this guide, what you need to know is that AWS Lambda is where our code lives.  When a user asks Alexa to use our skill, it is our AWS Lambda function that interprets the appropriate interaction, and provides the conversation back to the user.
+In the [Voice User Interface](./1-voice-user-interface.md) step, you built the Voice User Interface (VUI) for our Alexa skill. In this step, we will be creating an AWS Lambda function using [Amazon Web Services](http://aws.amazon.com).  You can [read more about what a Lambda function is](http://aws.amazon.com/lambda), but for the purposes of this guide, what you need to know is that AWS Lambda is where our code lives.  When a user asks Alexa to use our skill, it is our AWS Lambda function that interprets the appropriate interaction and provides the conversation back to the user.
 
-1.  **Go to http://aws.amazon.com and sign in to the console.** If you don't already have an account, you will need to create one.  [If you don't have an AWS account, check out this quick walkthrough for setting it up](https://github.com/alexa/alexa-cookbook/tree/master/aws/set-up-aws.md).
+1.  Go to the [AWS Console](https://console.aws.amazon.com/console/home) and sign in. 
 
     <a href="https://console.aws.amazon.com/console/home" target="_new"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-1-sign-in-to-the-console._TTH_.png" /></a>
 
-2.  **Click "Services" at the top of the screen, and type "Lambda" in the search box.**  You can also find Lambda in the list of services.  It is in the "Compute" section.
+	> If you don't already have an account, you will need to create one.  [Here is a quick walkthrough for setting up an AWS account](https://github.com/alexa/alexa-cookbook/blob/master/guides/aws-security-and-setup/set-up-aws.md).
+
+2.  Click _Services_ at the top of the screen, and type ```Lambda``` in the search box.  You can also find Lambda in the list of services.  It is in the _Compute_ section.
 
     <a href="https://console.aws.amazon.com/lambda/home" target="_new"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-2-services-lambda._TTH_.png" /></a>
 
-3.  **Check your AWS region.** AWS Lambda only works with the Alexa Skills Kit in two regions: US East (N. Virginia) and EU (Ireland).  Make sure you choose the region closest to your customers.
+3.  Check that your AWS region is set to US East (N. Virginia): **us-east-1**. AWS Lambda only works with the Alexa Skills Kit in two regions: US East (N. Virginia) and EU (Ireland).  Make sure you choose the region closest to your customers.
 
-    <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-3-check-region._TTH_.png"/>
+	<img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-3-check-region._TTH_.png"/>
 
-4.  **Click the "Create a Lambda function" button.** It should be near the top of your screen.  (If you don't see this button, it is because you haven't created a Lambda function before.  Click the blue "Get Started" button near the center of your screen.)
+4.  Click the **Create function** button near the top right of the page.
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-4-create-a-lambda-function._TTH_.png" />
 
-5. **Skip the blueprint and choose your role.**
-  * Under "Create Function", make sure that "Author from scratch" is selected.
-  * The name of your function will only be visible to you, but make sure that you name it something meaningful.  "FeedReader" is sufficient if you don't have another idea for a name.
+5. When prompted, make sure that **Author from scratch** is selected.
+6. Set the name of the function. ```FeedReader``` is sufficient if you don't have another idea for a name. The name of your function will only be visible to you, but make sure that you name it something meaningful.  
 
-  <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-7-configure-your-function._TTH_.png" />  
+	<img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-7-configure-your-function._TTH_.png" />  
 
-6. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs. If you haven't done this before, we have a [detailed walkthrough for setting up your first role for Lambda](https://github.com/alexa/alexa-cookbook/tree/master/aws/lambda-role.md)
+7. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs. If you haven't done this before, a [detailed walkthrough for setting up your first role for Lambda](https://github.com/alexa/alexa-cookbook/tree/master/aws/lambda-role.md) is available.
+	1. Create a new IAM role.
+	![create_role_1](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-1.PNG "AWS Create Role Screenshot 1")<br/><br/>
+	2. Select the Service type of the role as **Lambda**.
+	![create_role_2](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-2.PNG "AWS Create Role Screenshot 2")<br/><br/>
+	
+	3. Add the following policies to the role:
+		- AmazonDynamoDBFullAccess
+		- AmazonS3FullAccess
+		- CloudWatchLogsFullAccess<br/>
+		
+		![create_role_3](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-3.PNG "AWS Create Role Screenshot 3")<br/><br/>
 
-   ![create_role_1](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-1.PNG "AWS Create Role Screenshot 1")
-   ![create_role_2](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-2.PNG "AWS Create Role Screenshot 2")
-   ![create_role_3](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-3.PNG "AWS Create Role Screenshot 3")
+   * Once you've set up your role, click the **Create Function** button in the bottom right corner.
 
-   * Once you've set up your role, click the "Create Function" button in the bottom right corner.
+8. From the _Add triggers_ section on the left add Alexa Skills Kit from the list by clicking on it.  
 
-7. **Configure your trigger.** Look at the column on the left called "Add triggers", and select Alexa Skills Kit from the list.  If you don't see Alexa Skills Kit in the list, jump back to step #3 on this page.
+9. Once you have selected **Alexa Skills Kit**, scroll down to the bottom of the page. Under _Configure triggers_, select Enable for Skill ID verification. A **Skill ID** Text Box should appear. The value for this input is your Skill ID from the developer portal.
 
-    <!-- <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-6-configure-your-trigger._TTH_.png" /> TODO: THIS SCREENSHOT IS OUT OF DATE-->
+10. Now lets secure this lambda function, so that it can only be invoked by your skill. Open up the [developer portal](https://developer.amazon.com/edw/home.html#/skills) and select your skill from the list. You mays till have a browser tab open if you started at the beginning of this tutorial.
 
-8. Once you have selected Alexa Skills Kit, scroll down. Under Configure triggers, select Enable for Skill ID verification. A skill ID Edit box should appear. We will now retrieve your Skill ID from the developer portal.
+11. Browse to your list of skills in the [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask) and click the **View Skill ID** link. From the popup Skill ID dialog, select and copy the value. It should look something like the following: `amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
 
-9. Now lets secure this lambda function, so that it can only be invoked by your skill. Open up the [developer portal](https://developer.amazon.com/edw/home.html#/skills) and select your skill from the list. You mays till have a browser tab open if you started at the beginning of this tutorial.
-
-10. Click the Skill Information Link.
-
-    <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/3-2-configuration-tab._TTH_.png" />
-
-11. Copy the **Application ID** provided in the main window. This is also known as a skill ID, and is unique to your skill.
-
-12. Return back to your lambda function in the. You may already have this browser tab open from **Step 11**. Otherwise, open the lambda console by clicking here: [AWS Console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions) and selecting the appropriate function. Scroll down to **Configure triggers**, paste the Skill ID in the Skill ID edit box.
+12. Return back to your lambda function in the. You may already have this browser tab open. Otherwise, open the lambda console by clicking here: [AWS Lambda Console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions) and selecting the appropriate function. Scroll down to **Configure triggers**, paste the Skill ID in the Skill ID edit box.
 
 13. Click the **Add** button. Then click the **Save** button in the top right. You should see a green success message at the top of your screen. Now, click the box that has the Lambda icon followed by the name of your function and scroll down to the field called "Function code".
 
-14. **For this skill, you'll need to set up your local environment to run the deployment script.**  
+14. Set up your local environment to run the deployment script
 
-      1. Configure AWS credentials the tool will use to upload code to your Skill.  You do this by creating a file under a ".aws" directory in your home directory.
+      1. Configure AWS credentials the tool will use to upload code to your Skill. For full details see the instructions on [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
       2. The file should have the format, and include keys you retrieve from the AWS console:
 
@@ -70,73 +72,85 @@ In the [first step of this guide](./1-voice-user-interface.md), we built the Voi
       4.	Get the code and install dependencies:
 
           ```
-          git clone  https://github.com/alexa/skill-sample-nodejs-feed.git
-          cd skill-sample-nodejs-feed/src
+          git clone https://github.com/alexa/skill-sample-nodejs-feed.git
+          cd skill-sample-nodejs-feed/lambda/custom
           npm install
           ```
 
-15. Configure the Project to Use Your Feed
+15. Create an S3 Bucket
+
+	In another tab, go to the [Amazon S3 Console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1) and create an AWS S3 Bucket with a unique name like ```feed-skill-bucket-385123```. The S3 bucket name must be unique across all existing bucket names in Amazon S3. In case of a conflict, retry with another name and append with something like your initials or a random value.
+
+	![alt text](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-s3-bucket-screenshot-1.PNG "AWS DynamoDB Screenshot")
+
+
+16. **[OPTIONAL]** Create an AWS DynamoDB table
+	You can manually create a table named MyFeedSkillTable with the case sensitive primary key "userId".
+
+	![alt text](https://cloud.githubusercontent.com/assets/7671574/17307587/b80787f2-57ea-11e6-9be2-3df26e8e5947.png "AWS DynamoDB Screenshot")
+
+
+17. Configure the Project to Use Your Feed
 
       1. Open ```/lambda/custom/configuration.js``` file.
 
       2. Update the following information to configure the skill:
 
-          * appId : Your Skill's Application ID from the Skill you created at https://developer.amazon.com.
-          * welcome_message : A welcome message that will be spoken to the user when they open your skill.
-          * number_feeds_per_prompt : The number of items the skill will read each time the user invokes it.
-          * display_only_feed_title : A boolean flag that determines whether to speak out the title-only or title and summary of the items in your feed.
-          * display_only_title_in_card : A boolean flag to decide whether to display a card with the title only or title and summary of the items in your feed.
-          * categories : The list of RSS feeds you want to include in your Skill.  Each feed will be treated as a category.
-          * speech_style_for_numbering_feeds : Naming convention for each item.
-          * s3BucketName : Your S3 Bucket Name
-          * dynamoDBTableName : Your DynamoDB Table Name (If not created, the skill will create it.)
+		**appId**: Your Skill's Application ID from the Skill you created at https://developer.amazon.com.<br/>
+		**welcome_message**: A welcome message that will be spoken to the user when they open your skill.<br/>
+		**number\_feeds\_per\_prompt**: The number of items the skill will read each time the user invokes it.<br/>
+		**display\_only\_feed\_title**: A boolean flag that determines whether to speak out the title-only or title and summary of the items in your feed.<br/>
+		**display\_only\_title\_in\_card** : A boolean flag to decide whether to display a card with the title only or title and summary of the items in your feed.<br/>
+		**categories**: The list of RSS feeds you want to include in your Skill.  Each feed will be treated as a category.<br/>
+		**speech\_style\_for\_numbering\_feeds**: Naming convention for each item.<br/>
+		**s3BucketName**: Your S3 Bucket Name.<br/>
+		**dynamoDBTableName**: Your DynamoDB Table Name. (If not created, the skill will create it.)<br/>
 
       3. A sample configuration :
 
-          ```javascript
-          let config = {
-              appId : 'amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-              welcome_message : 'Welcome to Feed Skill',
-              number_feeds_per_prompt : 3,
-              display_only_feed_title : true,
-              display_only_title_in_card : true,
-              categories : {
-                  'feed name' : 'http://www.example.com/rss-feed.xml'
-              },
-              speech_style_for_numbering_feeds : 'Item',
-              s3BucketName : 'my-feed-skill-bucket',
-              dynamoDBTableName : 'MyFeedSkillBucket'
-          };
-          ```
+		```javascript
+		let config = {
+			appId : 'amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+			welcome_message : 'Welcome to Feed Skill',
+			number_feeds_per_prompt : 3,
+			display_only_feed_title : true,
+			display_only_title_in_card : true,
+			categories : {
+				'feed name' : 'http://www.example.com/rss-feed.xml'
+			},
+			speech_style_for_numbering_feeds : 'Item',
+			s3BucketName : '{YOUR_S3_BUCKET_NAME}',
+			dynamoDBTableName : 'MyFeedSkillBucket'
+			dynamoDBRegion : 'us-east-1'
+		};
+		```
 
-16. Deploy Your Skill
+18. Deploy Your Skill
 
-      1. Go to the ```skill-sample-nodejs-feed/lambda/bin/``` directory and run ```deploy.js``` using Node.
+	1. From the commmand-line, go to the `skill-sample-nodejs-feed/lambda/bin/` directory and run `deploy.js` using Node.
 
           ```
           npm install aws-sdk
           node deploy.js
           ```
 
-      2. Go to the the ```skill-sample-nodejs-feed/lambda/custom/``` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself.   Lambda needs to be able to find the ```index.js``` file at the root of the zip file.
 
-      3. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1) and upload the file to your Lambda function, selecting "Code entry type" as "Upload a .ZIP file".
+	2. Go to the the `skill-sample-nodejs-feed/lambda/custom/` directory and zip all of the files.  Be sure to only zip the files inside the directory, and not the directory itself. The ```index.js``` file needs to be at the root of the zip file.
 
-17. **Configure the rest of your function**
-    1. Scroll to the sections below "Function code"
-    1. Change the "Timeout" to 30 seconds, since feeds can become an issue.
-    1. Leave the defaults for everything else.
-    1. Note the ARN of the Lambda you've created, which you'll need later.
+	3. Go to the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions) select your Lambda function, locate the Function code section and upload the file by selecting "Code entry type" as "Upload a .ZIP file".
 
-    1. In another tab, go to the AWS console and create an AWS S3 Bucket with the name of your choice. Note, the S3 bucket name you choose must be unique across all existing bucket names in Amazon S3. Thus you may have to retry with another name in case of a conflict.
+	4. Configure the rest of your function
+		1. Scroll to the _Basic Settings_ section.
+		2. Change the **Timeout** to 30 seconds, since feeds can become an issue.
+		3. Leave the defaults for everything else.
+		4. Note the ARN of the Lambda you've created, which you'll need later.
 
-      ![alt text](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-s3-bucket-screenshot-1.PNG "AWS DynamoDB Screenshot")
+19. Update the skill interaction model.
+	1. During the deploy, a copy of the interaction model was created and named `en-US-updated.json` that contains the categories specified from the configuration file. Locate that file in the _/models_ directory.
+	2. Open the file and copy its contents back into the **Intents** JSON Editor of the Alexa Developer Console.
+	3. Updating the contents of the interaction model will update the invocation. Doublecheck that you have the invocation name you want to use and save and build the model.
 
-    1. **[OPTIONAL]** Create an AWS DynamoDB table named MyFeedSkillTable with the case sensitive primary key "userId".
-
-      ![alt text](https://cloud.githubusercontent.com/assets/7671574/17307587/b80787f2-57ea-11e6-9be2-3df26e8e5947.png "AWS DynamoDB Screenshot")
-
-18. **After you create the function, the ARN value appears in the top right corner. Copy this value for use in the next section of the guide.**
+20. After you create the function, the ARN value appears in the top right corner. Copy this value for use in the next section of the guide.
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/quiz-game/2-12-copy-ARN._TTH_.png" />  <!--TODO: THIS IMAGE NEEDS TO BE CUSTOMIZED FOR YOUR SKILL TEMPLATE. -->
 

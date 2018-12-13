@@ -68,10 +68,10 @@ const stateHandlers = {
             this.emit('helpStartMode');
         },
         'AMAZON.StopIntent' : function () {
-            this.emit('EndSession', 'Good bye .');
+            this.emit('EndSession', 'Goodbye');
         },
         'AMAZON.CancelIntent' : function () {
-            this.emit('EndSession', 'Good bye .');
+            this.emit('EndSession', 'Goodbye');
         },
         'SessionEndedRequest' : function () {
             this.emit('EndSession', constants.terminate);
