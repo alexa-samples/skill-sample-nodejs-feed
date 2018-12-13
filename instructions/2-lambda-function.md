@@ -15,7 +15,7 @@ In the [Voice User Interface](./1-voice-user-interface.md) step, you built the V
 
     <a href="https://console.aws.amazon.com/lambda/home" target="_new"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-2-services-lambda._TTH_.png" /></a>
 
-3.  Check that your AWS region is set to US East (N. Virginia): **us-east-1**. AWS Lambda only works with the Alexa Skills Kit in two regions: US East (N. Virginia) and EU (Ireland).  Make sure you choose the region closest to your customers.
+3.  Check that your AWS region is set to US East (N. Virginia): **us-east-1**. AWS Lambda only works with the Alexa Skills Kit in four regions: US East (N. Virginia), EU (Ireland), US West (Oregon) and Asia Pacific (Tokyo).  Make sure you choose the region closest to your customers.
 
 	<img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-3-check-region._TTH_.png"/>
 
@@ -28,7 +28,7 @@ In the [Voice User Interface](./1-voice-user-interface.md) step, you built the V
 
 	<img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-7-configure-your-function._TTH_.png" />  
 
-7. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs. If you haven't done this before, a [detailed walkthrough for setting up your first role for Lambda](https://github.com/alexa/alexa-cookbook/tree/master/aws/lambda-role.md) is available.
+7. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs. If you haven't done this before, a [detailed walkthrough for setting up your first role for Lambda](https://alexa.design/create-lambda-role) is available.
 	1. Create a new IAM role.
 	![create_role_1](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-1.PNG "AWS Create Role Screenshot 1")<br/><br/>
 	2. Select the Service type of the role as **Lambda**.
