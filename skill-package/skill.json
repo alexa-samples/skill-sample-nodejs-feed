@@ -22,7 +22,7 @@
       "custom": {
         "endpoint": {
           "sourceDir": "lambda/custom",
-          "uri":"ask-custom-feed"
+          "uri": "ask-custom-feed"
         }
       }
     },
