@@ -30,16 +30,13 @@ In the [Voice User Interface](./1-voice-user-interface.md) step, you built the V
 
 7. Create an AWS Role in IAM with access to DynamoDB, S3 and CloudWatch logs. If you haven't done this before, a [detailed walkthrough for setting up your first role for Lambda](https://alexa.design/create-lambda-role) is available.
 	1. Create a new IAM role.
-	![create_role_1](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-1.PNG "AWS Create Role Screenshot 1")<br/><br/>
 	2. Select the Service type of the role as **Lambda**.
-	![create_role_2](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-2.PNG "AWS Create Role Screenshot 2")<br/><br/>
 	
 	3. Add the following policies to the role:
 		- AmazonDynamoDBFullAccess
 		- AmazonS3FullAccess
 		- CloudWatchLogsFullAccess<br/>
 		
-		![create_role_3](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-role-screenshot-3.PNG "AWS Create Role Screenshot 3")<br/><br/>
 
    * Once you've set up your role, click the **Create Function** button in the bottom right corner.
 
@@ -81,7 +78,6 @@ In the [Voice User Interface](./1-voice-user-interface.md) step, you built the V
 
 	In another tab, go to the [Amazon S3 Console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1) and create an AWS S3 Bucket with a unique name like ```feed-skill-bucket-385123```. The S3 bucket name must be unique across all existing bucket names in Amazon S3. In case of a conflict, retry with another name and append with something like your initials or a random value.
 
-	![alt text](https://s3.amazonaws.com/lantern-public-assets/sample-skill-nodejs-feed/aws-create-s3-bucket-screenshot-1.PNG "AWS DynamoDB Screenshot")
 
 
 16. **[OPTIONAL]** Create an AWS DynamoDB table
