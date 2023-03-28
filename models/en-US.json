@@ -359,7 +359,9 @@
             "remove this feed from favorite",
             "remove this feed from favorites",
             "remove this feed from my favorite",
-            "remove this feed from my favorites"
+            "remove this feed from my favorites",
+            "get rid of this from our favorite",
+            "move out this from our favourite"
           ],
           "slots": []
         },
